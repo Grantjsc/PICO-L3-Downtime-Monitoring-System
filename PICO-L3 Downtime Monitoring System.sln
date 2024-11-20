@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PICO-L3 Downtime Monitoring System", "PICO-L3 Downtime Monitoring System\PICO-L3 Downtime Monitoring System.vbproj", "{1632C740-A076-4987-8837-5D32E8DAFE4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1632C740-A076-4987-8837-5D32E8DAFE4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1632C740-A076-4987-8837-5D32E8DAFE4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1632C740-A076-4987-8837-5D32E8DAFE4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1632C740-A076-4987-8837-5D32E8DAFE4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD75EC22-D321-4D6C-9D0F-762986DE0612}
+	EndGlobalSection
+EndGlobal
