@@ -24,6 +24,9 @@ Module AppConfig_Module
 
     Public Update_ProcessStatus As Integer
 
+    Public WheelCoater_L3_ErrorStat As Integer
+    Public WheelCoater_L5_ErrorStat As Integer
+
 
     '***************** Get Line 3A process status *******************
 
@@ -298,6 +301,38 @@ Module AppConfig_Module
         ConfigurationManager.RefreshSection("appSettings") 'refresh
     End Sub
 
+
+    '***************** Get Wheel Coater process status *******************
+
+    Sub Get_WC_L3_Status()
+        Dim LineProStatus As String = System.Configuration.ConfigurationManager.AppSettings("WC_L3_Stat")
+        Console.WriteLine(LineProStatus)
+
+        WheelCoater_L3_ErrorStat = LineProStatus
+    End Sub
+
+    Sub Get_WC_L5_Status()
+        Dim LineProStatus As String = System.Configuration.ConfigurationManager.AppSettings("WC_L5_Stat")
+        Console.WriteLine(LineProStatus)
+
+        WheelCoater_L5_ErrorStat = LineProStatus
+    End Sub
+
+    '***************** Change Wheel Coater process status *******************
+    Sub Update_WC_L3_ErrorStat()
+        config.AppSettings.Settings("WC_L3_Stat").Value = Update_ProcessStatus ' Update 
+        config.Save(ConfigurationSaveMode.Modified) ' save the new value
+
+        ConfigurationManager.RefreshSection("appSettings") 'refresh
+    End Sub
+
+    Sub Update_WC_L5_ErrorStat()
+        config.AppSettings.Settings("WC_L5_Stat").Value = Update_ProcessStatus ' Update 
+        config.Save(ConfigurationSaveMode.Modified) ' save the new value
+
+        ConfigurationManager.RefreshSection("appSettings") 'refresh
+    End Sub
+
 End Module
 
 Module SendEmail_Module
@@ -376,6 +411,7 @@ Module SendEmail_Module
     End Sub
 
     Public LineIssue_Duration As String
+    Public Totalhrs As Decimal
 
     Sub Send_DowntimeRep_Email()
 
@@ -401,6 +437,7 @@ Module SendEmail_Module
                                    duration.Minutes & " minute(s)."
 
         LineIssue_Duration = DT_Duration
+        Totalhrs = Math.Round(duration.TotalHours, 2)
 
         Dim Cause As String = ResolvedReport_Form.txtCause.Text
         Dim Status As String = ResolvedReport_Form.cboStatus.Text
@@ -435,6 +472,10 @@ Module SendEmail_Module
                       <div style='font-family: Arial, sans-serif; font-size: 12pt;'>
                         Please refer to the table below for more information on the line issue.;<br><br>
                           <table>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Green; text-align: center;'>Process:</td>
+                              <td>" & Process & "</td>
+                            </tr>
                             <tr>
                               <td style='color: white; font-weight: bold; background-color: Green; text-align: center;'>Duration:</td>
                               <td>" & DT_Duration & "</td>
@@ -538,6 +579,10 @@ Module SendEmail_Module
                         Please refer to the table below for more information on the line issue.;<br><br>
                           <table>
                             <tr>
+                              <td style='color: black; font-weight: bold; background-color: gold; text-align: center;'>Process:</td>
+                              <td>" & Process & "</td>
+                            </tr>
+                            <tr>
                               <td style='color: black; font-weight: bold; background-color: gold; text-align: center;'>Duration:</td>
                               <td>" & DT_Duration & "</td>
                             </tr>
@@ -619,6 +664,9 @@ Module Function_Module
         Get_3B_Turning_Status()
         Get_3B_2ndHeat_Status()
         Get_3B_Trimming_Status()
+
+        Get_WC_L3_Status()
+        Get_WC_L5_Status()
     End Sub
 
     Sub UpdateError_LineProcess_Status()
@@ -830,6 +878,28 @@ Module Function_Module
 
                 Log_TimeReported()
 
+            Case "PICO Line 3 Wheel Coater"
+                'MsgBox("PICO Line 3 Wheel Coater")
+                Update_ProcessStatus = 1
+                Update_WC_L3_ErrorStat()
+
+                Form1.btnWC_Line3.FillColor = Color.Salmon
+                Form1.btnWC_Line3.FillColor2 = Color.Red
+                Form1.btnWC_Line3.ForeColor = Color.White
+
+                Log_TimeReported()
+
+            Case "PICO Line 5 Wheel Coater"
+                'MsgBox("PICO Line 3 Wheel Coater")
+                Update_ProcessStatus = 1
+                Update_WC_L5_ErrorStat()
+
+                Form1.btnWC_Line5.FillColor = Color.Salmon
+                Form1.btnWC_Line5.FillColor2 = Color.Red
+                Form1.btnWC_Line5.ForeColor = Color.White
+
+                Log_TimeReported()
+
         End Select
 
 
@@ -1007,6 +1077,24 @@ Module Function_Module
                 Form1.btn3B_Trimming.FillColor2 = Color.LightGreen
                 Form1.btn3B_Trimming.ForeColor = Color.Black
 
+            Case "PICO Line 3 Wheel Coater"
+                'MsgBox("PICO Line 3B Trimming")
+                Update_ProcessStatus = 0
+                Update_WC_L3_ErrorStat()
+
+                Form1.btnWC_Line3.FillColor = Color.Green
+                Form1.btnWC_Line3.FillColor2 = Color.LightGreen
+                Form1.btnWC_Line3.ForeColor = Color.Black
+
+            Case "PICO Line 5 Wheel Coater"
+                'MsgBox("PICO Line 3B Trimming")
+                Update_ProcessStatus = 0
+                Update_WC_L5_ErrorStat()
+
+                Form1.btnWC_Line5.FillColor = Color.Green
+                Form1.btnWC_Line5.FillColor2 = Color.LightGreen
+                Form1.btnWC_Line5.ForeColor = Color.Black
+
         End Select
 
 
@@ -1032,7 +1120,9 @@ Module Function_Module
     (Line3B_1stHeat_ErrorStat, Form1.btn3B_1stHeat),
     (Line3B_Turning_ErrorStat, Form1.btn3B_Turning),
     (Line3B_2ndHeat_ErrorStat, Form1.btn3B_2ndHeat),
-    (Line3B_Trimming_ErrorStat, Form1.btn3B_Trimming)
+    (Line3B_Trimming_ErrorStat, Form1.btn3B_Trimming),
+    (WheelCoater_L3_ErrorStat, Form1.btnWC_Line3), 'Starting here is for wheel coater
+    (WheelCoater_L5_ErrorStat, Form1.btnWC_Line5)
 }
 
         For Each mapping In errorMapping
@@ -1669,6 +1759,75 @@ Module Function_Module
         End If
     End Sub
 
+    '*************************** Reporting Code for Wheel Coater*****************************
+
+    Sub WC_Lin3_DblClick()
+        Get_WC_L3_Status()
+        If WheelCoater_L3_ErrorStat = 0 Then
+            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+                IssueReport_Form.txtLine.Text = "PICO Line 3"
+                IssueReport_Form.txtProcess.Text = "Wheel Coater"
+                IssueReport_Form.ShowDialog()
+
+                Master_login.Close()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+
+        Else
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+
+                Master_login.Close()
+                ResolvedReport_Form.txtLine.Text = "PICO Line 3"
+                ResolvedReport_Form.txtProcess.Text = "Wheel Coater"
+                ResolvedReport_Form.ShowDialog()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+        End If
+    End Sub
+
+    Sub WC_Lin5_DblClick()
+        Get_WC_L5_Status()
+        If WheelCoater_L5_ErrorStat = 0 Then
+            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+                IssueReport_Form.txtLine.Text = "PICO Line 5"
+                IssueReport_Form.txtProcess.Text = "Wheel Coater"
+                IssueReport_Form.ShowDialog()
+
+                Master_login.Close()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+
+        Else
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+
+                Master_login.Close()
+                ResolvedReport_Form.txtLine.Text = "PICO Line 5"
+                ResolvedReport_Form.txtProcess.Text = "Wheel Coater"
+                ResolvedReport_Form.ShowDialog()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+        End If
+    End Sub
 End Module
 
 Module Query_Module
@@ -1889,8 +2048,8 @@ Module Saving_Module
 
         Dim dateNtime As String = Date.Now.ToString("MM/dd/yyyy hh:mmtt")
 
-        History = vbCrLf & """Line Process""" & "," & """Reported by""" & "," & """Reported Time""" & "," & """Resolved Time""" & "," & """Duration""" & "," & """Cause""" & "," & """Person in Charge""" & vbCrLf
-        History = History & LinePro & "," & Rep_name & "," & Reported & "," & Resolved & "," & LineIssue_Duration & "," & ResolvedReport_Form.txtCause.Text & "," & Biometric_Name & vbCrLf
+        History = vbCrLf & """Line Process""" & "," & """Reported by""" & "," & """Reported Time""" & "," & """Resolved Time""" & "," & """Duration(hrs)""" & "," & """Cause""" & "," & """Person in Charge""" & vbCrLf
+        History = History & LinePro & "," & Rep_name & "," & Reported & "," & Resolved & "," & Totalhrs & "," & ResolvedReport_Form.txtCause.Text & "," & Biometric_Name & vbCrLf
 
         My.Computer.FileSystem.WriteAllText(FolderPath, History, True)
     End Sub

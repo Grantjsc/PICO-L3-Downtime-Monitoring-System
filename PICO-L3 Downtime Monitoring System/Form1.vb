@@ -88,4 +88,12 @@
     Private Sub AddAssociateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddAssociateToolStripMenuItem.Click
         Load_AddForm()
     End Sub
+
+    Private Sub btnWC_Line3_DoubleClick(sender As Object, e As EventArgs) Handles btnWC_Line3.DoubleClick
+        WC_Lin3_DblClick()
+    End Sub
+
+    Private Sub btnWC_Line5_DoubleClick(sender As Object, e As EventArgs) Handles btnWC_Line5.DoubleClick
+        WC_Lin5_DblClick()
+    End Sub
 End Class

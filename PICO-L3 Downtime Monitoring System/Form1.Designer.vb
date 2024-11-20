@@ -52,12 +52,16 @@ Partial Class Form1
         Me.btn3B_PreMelt = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AddAssociateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Guna2GroupBox3 = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.btnWC_Line5 = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.btnWC_Line3 = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.Guna2CustomGradientPanel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.PanelMaster.SuspendLayout()
         Me.Guna2GroupBox2.SuspendLayout()
         Me.Guna2ContextMenuStrip1.SuspendLayout()
+        Me.Guna2GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Guna2CustomGradientPanel1
@@ -72,7 +76,7 @@ Partial Class Form1
         Me.Guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.SeaGreen
         Me.Guna2CustomGradientPanel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2CustomGradientPanel1.Name = "Guna2CustomGradientPanel1"
-        Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(600, 58)
+        Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(888, 58)
         Me.Guna2CustomGradientPanel1.TabIndex = 0
         '
         'Label2
@@ -81,7 +85,7 @@ Partial Class Form1
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Impact", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(202, 9)
+        Me.Label2.Location = New System.Drawing.Point(271, 9)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(362, 36)
         Me.Label2.TabIndex = 3
@@ -387,6 +391,7 @@ Partial Class Form1
         'PanelMaster
         '
         Me.PanelMaster.BackColor = System.Drawing.SystemColors.Control
+        Me.PanelMaster.Controls.Add(Me.Guna2GroupBox3)
         Me.PanelMaster.Controls.Add(Me.Guna2GroupBox2)
         Me.PanelMaster.Controls.Add(Me.lblfooter2)
         Me.PanelMaster.Controls.Add(Me.lblfooter1)
@@ -394,7 +399,7 @@ Partial Class Form1
         Me.PanelMaster.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelMaster.Location = New System.Drawing.Point(0, 58)
         Me.PanelMaster.Name = "PanelMaster"
-        Me.PanelMaster.Size = New System.Drawing.Size(600, 927)
+        Me.PanelMaster.Size = New System.Drawing.Size(888, 927)
         Me.PanelMaster.TabIndex = 2
         '
         'Guna2GroupBox2
@@ -656,19 +661,90 @@ Partial Class Form1
         Me.Guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White
         Me.Guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro
         Me.Guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
-        Me.Guna2ContextMenuStrip1.Size = New System.Drawing.Size(181, 48)
+        Me.Guna2ContextMenuStrip1.Size = New System.Drawing.Size(150, 26)
         '
         'AddAssociateToolStripMenuItem
         '
         Me.AddAssociateToolStripMenuItem.Name = "AddAssociateToolStripMenuItem"
-        Me.AddAssociateToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AddAssociateToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
         Me.AddAssociateToolStripMenuItem.Text = "Add Associate"
+        '
+        'Guna2GroupBox3
+        '
+        Me.Guna2GroupBox3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2GroupBox3.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.Guna2GroupBox3.BorderRadius = 15
+        Me.Guna2GroupBox3.BorderThickness = 4
+        Me.Guna2GroupBox3.Controls.Add(Me.btnWC_Line5)
+        Me.Guna2GroupBox3.Controls.Add(Me.btnWC_Line3)
+        Me.Guna2GroupBox3.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.Guna2GroupBox3.FillColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.Guna2GroupBox3.Font = New System.Drawing.Font("Segoe UI Black", 20.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2GroupBox3.ForeColor = System.Drawing.Color.Black
+        Me.Guna2GroupBox3.Location = New System.Drawing.Point(602, 29)
+        Me.Guna2GroupBox3.Name = "Guna2GroupBox3"
+        Me.Guna2GroupBox3.ShadowDecoration.BorderRadius = 15
+        Me.Guna2GroupBox3.ShadowDecoration.Color = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Guna2GroupBox3.ShadowDecoration.Enabled = True
+        Me.Guna2GroupBox3.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(12)
+        Me.Guna2GroupBox3.Size = New System.Drawing.Size(251, 845)
+        Me.Guna2GroupBox3.TabIndex = 11
+        Me.Guna2GroupBox3.Text = "Wheel Coater"
+        Me.Guna2GroupBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'btnWC_Line5
+        '
+        Me.btnWC_Line5.BackColor = System.Drawing.Color.Transparent
+        Me.btnWC_Line5.BorderColor = System.Drawing.Color.FromArgb(CType(CType(72, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnWC_Line5.BorderRadius = 10
+        Me.btnWC_Line5.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnWC_Line5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnWC_Line5.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnWC_Line5.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnWC_Line5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnWC_Line5.FillColor = System.Drawing.Color.Green
+        Me.btnWC_Line5.FillColor2 = System.Drawing.Color.LightGreen
+        Me.btnWC_Line5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnWC_Line5.ForeColor = System.Drawing.Color.Black
+        Me.btnWC_Line5.Location = New System.Drawing.Point(25, 135)
+        Me.btnWC_Line5.Name = "btnWC_Line5"
+        Me.btnWC_Line5.ShadowDecoration.BorderRadius = 10
+        Me.btnWC_Line5.ShadowDecoration.Depth = 17
+        Me.btnWC_Line5.ShadowDecoration.Enabled = True
+        Me.btnWC_Line5.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
+        Me.btnWC_Line5.Size = New System.Drawing.Size(199, 67)
+        Me.btnWC_Line5.TabIndex = 2
+        Me.btnWC_Line5.Text = "Line 5"
+        '
+        'btnWC_Line3
+        '
+        Me.btnWC_Line3.BackColor = System.Drawing.Color.Transparent
+        Me.btnWC_Line3.BorderColor = System.Drawing.Color.FromArgb(CType(CType(72, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnWC_Line3.BorderRadius = 10
+        Me.btnWC_Line3.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnWC_Line3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnWC_Line3.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnWC_Line3.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnWC_Line3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnWC_Line3.FillColor = System.Drawing.Color.Green
+        Me.btnWC_Line3.FillColor2 = System.Drawing.Color.LightGreen
+        Me.btnWC_Line3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnWC_Line3.ForeColor = System.Drawing.Color.Black
+        Me.btnWC_Line3.Location = New System.Drawing.Point(25, 47)
+        Me.btnWC_Line3.Name = "btnWC_Line3"
+        Me.btnWC_Line3.ShadowDecoration.BorderRadius = 10
+        Me.btnWC_Line3.ShadowDecoration.Depth = 17
+        Me.btnWC_Line3.ShadowDecoration.Enabled = True
+        Me.btnWC_Line3.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
+        Me.btnWC_Line3.Size = New System.Drawing.Size(199, 67)
+        Me.btnWC_Line3.TabIndex = 1
+        Me.btnWC_Line3.Text = "Line 3"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(600, 985)
+        Me.ClientSize = New System.Drawing.Size(888, 985)
         Me.ContextMenuStrip = Me.Guna2ContextMenuStrip1
         Me.Controls.Add(Me.PanelMaster)
         Me.Controls.Add(Me.Guna2CustomGradientPanel1)
@@ -685,6 +761,7 @@ Partial Class Form1
         Me.PanelMaster.PerformLayout()
         Me.Guna2GroupBox2.ResumeLayout(False)
         Me.Guna2ContextMenuStrip1.ResumeLayout(False)
+        Me.Guna2GroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -718,4 +795,7 @@ Partial Class Form1
     Friend WithEvents btn3B_PreMelt As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents Guna2ContextMenuStrip1 As Guna.UI2.WinForms.Guna2ContextMenuStrip
     Friend WithEvents AddAssociateToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Guna2GroupBox3 As Guna.UI2.WinForms.Guna2GroupBox
+    Friend WithEvents btnWC_Line5 As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents btnWC_Line3 As Guna.UI2.WinForms.Guna2GradientButton
 End Class

@@ -62,6 +62,7 @@ Partial Class Add_Form
         '
         'PictureBox1
         '
+        Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = Global.PICO_L3_Downtime_Monitoring_System.My.Resources.Resources.fingerprint_BLACK_
         Me.PictureBox1.Location = New System.Drawing.Point(23, 108)
@@ -74,6 +75,7 @@ Partial Class Add_Form
         '
         'Panel2
         '
+        Me.Panel2.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.F4_Username_txt)
         Me.Panel2.Controls.Add(Me.TextBox1)
@@ -254,6 +256,7 @@ Partial Class Add_Form
         '
         'Panel1
         '
+        Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.PictureBox2)
         Me.Panel1.Controls.Add(Me.PictureBox3)
@@ -382,6 +385,7 @@ Partial Class Add_Form
         '
         'F4_Exit_btn
         '
+        Me.F4_Exit_btn.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.F4_Exit_btn.BorderRadius = 15
         Me.F4_Exit_btn.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.F4_Exit_btn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
@@ -401,6 +405,7 @@ Partial Class Add_Form
         '
         'F4_Login_btn
         '
+        Me.F4_Login_btn.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.F4_Login_btn.BorderColor = System.Drawing.SystemColors.Control
         Me.F4_Login_btn.BorderRadius = 15
         Me.F4_Login_btn.DisabledState.BorderColor = System.Drawing.Color.DarkGray
@@ -421,6 +426,7 @@ Partial Class Add_Form
         '
         'Label2
         '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Impact", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
