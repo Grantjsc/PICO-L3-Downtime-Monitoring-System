@@ -1,6 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Configuration
 Imports System.Data.OleDb
+Imports System.Data.SqlClient
 Imports System.IO
 Imports System.Net.Mail
 Imports System.Threading
@@ -405,7 +406,7 @@ Module SendEmail_Module
         SMTP.SendAsync(Email, Nothing)
 
         UpdateError_LineProcess_Status() 'Update the Status(AppConfig) and change button color
-
+        SQL_Report_LineStat() ' Update stat in SQL Server database to notify techs
         IssueReport_Form.Close()
 
     End Sub
@@ -512,7 +513,7 @@ Module SendEmail_Module
 
         UpdateResolved_LineProcess_Status() 'Update the Status(AppConfig) and change button color
         Thread.Sleep(500)
-
+        SQL_Resolved_LineStat() ' Update stat in SQL Server database to notify techs
         Log_TimeDuration() ' Log the duration time
 
         CheckPath() 'save history in csv file
@@ -1155,7 +1156,7 @@ Module Function_Module
             End If
 
         Else
-                Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
 
@@ -1187,7 +1188,7 @@ Module Function_Module
 
                 MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
                 Master_login.Close()
-        End If
+            End If
 
         Else
             Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
@@ -1221,8 +1222,8 @@ Module Function_Module
             Else
 
                 MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
-            Master_login.Close()
-        End If
+                Master_login.Close()
+            End If
 
         Else
             Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
@@ -1256,8 +1257,8 @@ Module Function_Module
             Else
 
                 MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
-            Master_login.Close()
-        End If
+                Master_login.Close()
+            End If
 
         Else
             Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
@@ -1295,7 +1296,7 @@ Module Function_Module
             End If
 
         Else
-                Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
 
@@ -1326,8 +1327,8 @@ Module Function_Module
             Else
 
                 MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
-            Master_login.Close()
-        End If
+                Master_login.Close()
+            End If
 
         Else
             Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
@@ -1365,7 +1366,7 @@ Module Function_Module
             End If
 
         Else
-                Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
 
@@ -1396,8 +1397,8 @@ Module Function_Module
             Else
 
                 MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
-            Master_login.Close()
-        End If
+                Master_login.Close()
+            End If
 
         Else
             Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
@@ -1435,7 +1436,7 @@ Module Function_Module
             End If
 
         Else
-                Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
 
@@ -1467,8 +1468,8 @@ Module Function_Module
             Else
 
                 MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
-            Master_login.Close()
-        End If
+                Master_login.Close()
+            End If
 
         Else
             Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
@@ -1505,7 +1506,7 @@ Module Function_Module
             End If
 
         Else
-                Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
 
@@ -1535,8 +1536,8 @@ Module Function_Module
             Else
 
                 MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
-            Master_login.Close()
-        End If
+                Master_login.Close()
+            End If
 
         Else
             Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
@@ -1573,7 +1574,7 @@ Module Function_Module
             End If
 
         Else
-                Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
 
@@ -1603,8 +1604,8 @@ Module Function_Module
             Else
 
                 MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
-            Master_login.Close()
-        End If
+                Master_login.Close()
+            End If
 
         Else
             Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
@@ -1641,7 +1642,7 @@ Module Function_Module
             End If
 
         Else
-                Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
 
@@ -1671,8 +1672,8 @@ Module Function_Module
             Else
 
                 MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
-            Master_login.Close()
-        End If
+                Master_login.Close()
+            End If
 
         Else
             Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
@@ -1709,7 +1710,7 @@ Module Function_Module
             End If
 
         Else
-                Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
 
@@ -1739,8 +1740,8 @@ Module Function_Module
             Else
 
                 MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
-            Master_login.Close()
-        End If
+                Master_login.Close()
+            End If
 
         Else
             Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
@@ -2010,6 +2011,75 @@ Module Query_Module
         Catch ex As Exception
             MsgBox(ex.Message, vbCritical)
         End Try
+    End Sub
+
+End Module
+
+Module SQL_Server_Query_Module
+
+    'Data Source=BTGCATAP5Y3JDK3;Initial Catalog=PICO Diagonal;Integrated Security=True;TrustServerCertificate=True
+    'Data Source=BTMESSQLPROD;Initial Catalog=LFPHPICO;Persist Security Info=True;User ID=MESACCOUNT;Password=superfuse;TrustServerCertificate=True
+
+    Public SQLconnString As String = "Data Source=BTMESSQLPROD;Initial Catalog=LFPHPICO;Persist Security Info=True;User ID=MESACCOUNT;Password=superfuse;TrustServerCertificate=True"
+    Public SQLDbconnection As New SqlConnection(SQLconnString)
+
+    Sub SQLConOpen()
+        If SQLDbconnection.State = ConnectionState.Closed Then
+            SQLDbconnection.Open()
+        End If
+    End Sub
+
+    Sub SQLConClose()
+        If SQLDbconnection.State = ConnectionState.Open Then
+            SQLDbconnection.Close()
+        End If
+    End Sub
+
+    'Public DownLines As String
+    Sub SQL_Report_LineStat()
+
+        Try
+
+            Dim Line_Pro As String = IssueReport_Form.txtLine.Text & " " & IssueReport_Form.txtProcess.Text
+            Dim query As String = "UPDATE PICO_DT_L3_Sta_tb 
+                                        SET Status = @ProStat
+                                        WHERE LineProcess = @LP"
+
+            Using command As New SqlCommand(query, SQLDbconnection)
+                command.Parameters.AddWithValue("@ProStat", Update_ProcessStatus)
+                command.Parameters.AddWithValue("@LP", Line_Pro)
+                SQLConOpen()
+                command.ExecuteNonQuery()
+                SQLConClose()
+            End Using
+
+        Catch ex As Exception
+            MsgBox(ex.Message, vbCritical)
+        End Try
+
+    End Sub
+
+    Sub SQL_Resolved_LineStat()
+
+        Try
+
+            Dim Line_Pro As String = ResolvedReport_Form.txtLine.Text & " " & ResolvedReport_Form.txtProcess.Text
+            Dim query As String = "UPDATE PICO_DT_L3_Sta_tb 
+                                        SET Status = @ProStat
+                                        WHERE LineProcess = @LP"
+
+            Using command As New SqlCommand(query, SQLDbconnection)
+                command.Parameters.AddWithValue("@ProStat", Update_ProcessStatus)
+                command.Parameters.AddWithValue("@LP", Line_Pro)
+                SQLConOpen()
+                command.ExecuteNonQuery()
+                SQLConClose()
+            End Using
+
+        Catch ex As Exception
+            MsgBox(ex.Message, vbCritical)
+        End Try
+
     End Sub
 End Module
 

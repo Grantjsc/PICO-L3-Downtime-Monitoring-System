@@ -40,6 +40,9 @@ Partial Class Form1
         Me.lblfooter1 = New System.Windows.Forms.Label()
         Me.lblfooter2 = New System.Windows.Forms.Label()
         Me.PanelMaster = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2GroupBox3 = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.btnWC_Line5 = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.btnWC_Line3 = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.Guna2GroupBox2 = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.btn3B_Trimming = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btn3B_2ndHeat = New Guna.UI2.WinForms.Guna2GradientButton()
@@ -52,16 +55,13 @@ Partial Class Form1
         Me.btn3B_PreMelt = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AddAssociateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Guna2GroupBox3 = New Guna.UI2.WinForms.Guna2GroupBox()
-        Me.btnWC_Line5 = New Guna.UI2.WinForms.Guna2GradientButton()
-        Me.btnWC_Line3 = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.Guna2CustomGradientPanel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.PanelMaster.SuspendLayout()
+        Me.Guna2GroupBox3.SuspendLayout()
         Me.Guna2GroupBox2.SuspendLayout()
         Me.Guna2ContextMenuStrip1.SuspendLayout()
-        Me.Guna2GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Guna2CustomGradientPanel1
@@ -402,6 +402,77 @@ Partial Class Form1
         Me.PanelMaster.Size = New System.Drawing.Size(888, 927)
         Me.PanelMaster.TabIndex = 2
         '
+        'Guna2GroupBox3
+        '
+        Me.Guna2GroupBox3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2GroupBox3.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.Guna2GroupBox3.BorderRadius = 15
+        Me.Guna2GroupBox3.BorderThickness = 4
+        Me.Guna2GroupBox3.Controls.Add(Me.btnWC_Line5)
+        Me.Guna2GroupBox3.Controls.Add(Me.btnWC_Line3)
+        Me.Guna2GroupBox3.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.Guna2GroupBox3.FillColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.Guna2GroupBox3.Font = New System.Drawing.Font("Segoe UI Black", 20.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2GroupBox3.ForeColor = System.Drawing.Color.Black
+        Me.Guna2GroupBox3.Location = New System.Drawing.Point(602, 29)
+        Me.Guna2GroupBox3.Name = "Guna2GroupBox3"
+        Me.Guna2GroupBox3.ShadowDecoration.BorderRadius = 15
+        Me.Guna2GroupBox3.ShadowDecoration.Color = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Guna2GroupBox3.ShadowDecoration.Enabled = True
+        Me.Guna2GroupBox3.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(12)
+        Me.Guna2GroupBox3.Size = New System.Drawing.Size(251, 845)
+        Me.Guna2GroupBox3.TabIndex = 11
+        Me.Guna2GroupBox3.Text = "Wheel Coater"
+        Me.Guna2GroupBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'btnWC_Line5
+        '
+        Me.btnWC_Line5.BackColor = System.Drawing.Color.Transparent
+        Me.btnWC_Line5.BorderColor = System.Drawing.Color.FromArgb(CType(CType(72, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnWC_Line5.BorderRadius = 10
+        Me.btnWC_Line5.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnWC_Line5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnWC_Line5.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnWC_Line5.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnWC_Line5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnWC_Line5.FillColor = System.Drawing.Color.Green
+        Me.btnWC_Line5.FillColor2 = System.Drawing.Color.LightGreen
+        Me.btnWC_Line5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnWC_Line5.ForeColor = System.Drawing.Color.Black
+        Me.btnWC_Line5.Location = New System.Drawing.Point(25, 135)
+        Me.btnWC_Line5.Name = "btnWC_Line5"
+        Me.btnWC_Line5.ShadowDecoration.BorderRadius = 10
+        Me.btnWC_Line5.ShadowDecoration.Depth = 17
+        Me.btnWC_Line5.ShadowDecoration.Enabled = True
+        Me.btnWC_Line5.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
+        Me.btnWC_Line5.Size = New System.Drawing.Size(199, 67)
+        Me.btnWC_Line5.TabIndex = 2
+        Me.btnWC_Line5.Text = "Line 5"
+        '
+        'btnWC_Line3
+        '
+        Me.btnWC_Line3.BackColor = System.Drawing.Color.Transparent
+        Me.btnWC_Line3.BorderColor = System.Drawing.Color.FromArgb(CType(CType(72, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnWC_Line3.BorderRadius = 10
+        Me.btnWC_Line3.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnWC_Line3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnWC_Line3.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnWC_Line3.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnWC_Line3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnWC_Line3.FillColor = System.Drawing.Color.Green
+        Me.btnWC_Line3.FillColor2 = System.Drawing.Color.LightGreen
+        Me.btnWC_Line3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnWC_Line3.ForeColor = System.Drawing.Color.Black
+        Me.btnWC_Line3.Location = New System.Drawing.Point(25, 47)
+        Me.btnWC_Line3.Name = "btnWC_Line3"
+        Me.btnWC_Line3.ShadowDecoration.BorderRadius = 10
+        Me.btnWC_Line3.ShadowDecoration.Depth = 17
+        Me.btnWC_Line3.ShadowDecoration.Enabled = True
+        Me.btnWC_Line3.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
+        Me.btnWC_Line3.Size = New System.Drawing.Size(199, 67)
+        Me.btnWC_Line3.TabIndex = 1
+        Me.btnWC_Line3.Text = "Line 3"
+        '
         'Guna2GroupBox2
         '
         Me.Guna2GroupBox2.BackColor = System.Drawing.Color.Transparent
@@ -669,77 +740,6 @@ Partial Class Form1
         Me.AddAssociateToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
         Me.AddAssociateToolStripMenuItem.Text = "Add Associate"
         '
-        'Guna2GroupBox3
-        '
-        Me.Guna2GroupBox3.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2GroupBox3.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(72, Byte), Integer))
-        Me.Guna2GroupBox3.BorderRadius = 15
-        Me.Guna2GroupBox3.BorderThickness = 4
-        Me.Guna2GroupBox3.Controls.Add(Me.btnWC_Line5)
-        Me.Guna2GroupBox3.Controls.Add(Me.btnWC_Line3)
-        Me.Guna2GroupBox3.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(72, Byte), Integer))
-        Me.Guna2GroupBox3.FillColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(72, Byte), Integer))
-        Me.Guna2GroupBox3.Font = New System.Drawing.Font("Segoe UI Black", 20.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2GroupBox3.ForeColor = System.Drawing.Color.Black
-        Me.Guna2GroupBox3.Location = New System.Drawing.Point(602, 29)
-        Me.Guna2GroupBox3.Name = "Guna2GroupBox3"
-        Me.Guna2GroupBox3.ShadowDecoration.BorderRadius = 15
-        Me.Guna2GroupBox3.ShadowDecoration.Color = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Guna2GroupBox3.ShadowDecoration.Enabled = True
-        Me.Guna2GroupBox3.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(12)
-        Me.Guna2GroupBox3.Size = New System.Drawing.Size(251, 845)
-        Me.Guna2GroupBox3.TabIndex = 11
-        Me.Guna2GroupBox3.Text = "Wheel Coater"
-        Me.Guna2GroupBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'btnWC_Line5
-        '
-        Me.btnWC_Line5.BackColor = System.Drawing.Color.Transparent
-        Me.btnWC_Line5.BorderColor = System.Drawing.Color.FromArgb(CType(CType(72, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(96, Byte), Integer))
-        Me.btnWC_Line5.BorderRadius = 10
-        Me.btnWC_Line5.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnWC_Line5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnWC_Line5.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnWC_Line5.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnWC_Line5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnWC_Line5.FillColor = System.Drawing.Color.Green
-        Me.btnWC_Line5.FillColor2 = System.Drawing.Color.LightGreen
-        Me.btnWC_Line5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnWC_Line5.ForeColor = System.Drawing.Color.Black
-        Me.btnWC_Line5.Location = New System.Drawing.Point(25, 135)
-        Me.btnWC_Line5.Name = "btnWC_Line5"
-        Me.btnWC_Line5.ShadowDecoration.BorderRadius = 10
-        Me.btnWC_Line5.ShadowDecoration.Depth = 17
-        Me.btnWC_Line5.ShadowDecoration.Enabled = True
-        Me.btnWC_Line5.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btnWC_Line5.Size = New System.Drawing.Size(199, 67)
-        Me.btnWC_Line5.TabIndex = 2
-        Me.btnWC_Line5.Text = "Line 5"
-        '
-        'btnWC_Line3
-        '
-        Me.btnWC_Line3.BackColor = System.Drawing.Color.Transparent
-        Me.btnWC_Line3.BorderColor = System.Drawing.Color.FromArgb(CType(CType(72, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(96, Byte), Integer))
-        Me.btnWC_Line3.BorderRadius = 10
-        Me.btnWC_Line3.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnWC_Line3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnWC_Line3.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnWC_Line3.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnWC_Line3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnWC_Line3.FillColor = System.Drawing.Color.Green
-        Me.btnWC_Line3.FillColor2 = System.Drawing.Color.LightGreen
-        Me.btnWC_Line3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnWC_Line3.ForeColor = System.Drawing.Color.Black
-        Me.btnWC_Line3.Location = New System.Drawing.Point(25, 47)
-        Me.btnWC_Line3.Name = "btnWC_Line3"
-        Me.btnWC_Line3.ShadowDecoration.BorderRadius = 10
-        Me.btnWC_Line3.ShadowDecoration.Depth = 17
-        Me.btnWC_Line3.ShadowDecoration.Enabled = True
-        Me.btnWC_Line3.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btnWC_Line3.Size = New System.Drawing.Size(199, 67)
-        Me.btnWC_Line3.TabIndex = 1
-        Me.btnWC_Line3.Text = "Line 3"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -759,9 +759,9 @@ Partial Class Form1
         Me.Guna2GroupBox1.ResumeLayout(False)
         Me.PanelMaster.ResumeLayout(False)
         Me.PanelMaster.PerformLayout()
+        Me.Guna2GroupBox3.ResumeLayout(False)
         Me.Guna2GroupBox2.ResumeLayout(False)
         Me.Guna2ContextMenuStrip1.ResumeLayout(False)
-        Me.Guna2GroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

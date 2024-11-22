@@ -65,6 +65,28 @@ Namespace My
                 Return CType(Me("PICO_Downtime_Monitoring_SystemConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=BTGCATAP5Y3JDK3;Initial Catalog=""PICO Diagonal"";Integrated Security=T"& _ 
+            "rue;TrustServerCertificate=True")>  _
+        Public ReadOnly Property MyServer() As String
+            Get
+                Return CType(Me("MyServer"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=BTMESSQLPROD;Initial Catalog=LFPHPICO;Persist Security Info=True;User"& _ 
+            " ID=MESACCOUNT;Password=superfuse;TrustServerCertificate=True")>  _
+        Public ReadOnly Property SQL_Server() As String
+            Get
+                Return CType(Me("SQL_Server"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 
