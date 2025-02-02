@@ -21,12 +21,26 @@
             txtNextStep.Focus()
         Else
 
-            If cboStatus.Text = "On-going" Then
-                Send_DowntimeRep_OnGoing_Email()
+            Master_login.Label1.Text = "Please scan your finger. PO3 or Associate only"
+            Acknowledge = True
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "Operator" Then
+
+                Master_login.Close()
+
+                If cboStatus.Text = "On-going" Then
+                    SQL_Ongoing_LineStat()
+                    Send_DowntimeRep_OnGoing_Email()
+                Else
+                    'Log_TimeResolved()
+                    'UpdateResolved_LineProcess_Status()
+                    Send_DowntimeRep_Email()
+                End If
+
             Else
-                'Log_TimeResolved()
-                'UpdateResolved_LineProcess_Status()
-                Send_DowntimeRep_Email()
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
             End If
 
         End If

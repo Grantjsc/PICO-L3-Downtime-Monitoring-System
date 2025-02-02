@@ -28,8 +28,7 @@
     <ProductName>PICO L3 Downtime Alarm System</ProductName>
     <PublisherName>Littelfuse Philippines %28TSG%29 - GCatapang</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
-    <WebPage>Installer.htm</WebPage>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>15</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -258,6 +257,11 @@
     <Compile Include="ResolvedReport_Form.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SWMaster_dbDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SWMaster_dbDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Add_Form.resx">
@@ -306,6 +310,17 @@
     </None>
     <None Include="PICO_Downtime_Monitoring_SystemDataSet.xss">
       <DependentUpon>PICO_Downtime_Monitoring_SystemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SWMaster_dbDataSet.xsc">
+      <DependentUpon>SWMaster_dbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SWMaster_dbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SWMaster_dbDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SWMaster_dbDataSet.xss">
+      <DependentUpon>SWMaster_dbDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

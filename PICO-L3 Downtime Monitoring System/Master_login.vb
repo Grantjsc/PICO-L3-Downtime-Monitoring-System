@@ -162,16 +162,21 @@ Public Class Master_login
                         F1_get_user = dr.Item("Username")
                         F1_get_title = dr.Item("Title")
 
-                        Biometric_Name = F1_get_user
+                        If Acknowledge = True Then
+                            Acknowledge = False
+                        Else
+                            Biometric_Name = F1_get_user
+                            Acknowledge = False
+                        End If
                         StopCapture()
 
 
-                        Me.Close()
+                            Me.Close()
 
-                        Exit For
+                            Exit For
 
 
-                    End If
+                        End If
                 Next
                 If Not result.Verified Then
                     Label1.ForeColor = Color.Red
@@ -204,5 +209,9 @@ Public Class Master_login
         '        End
         '    End If
         'End If
+    End Sub
+
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        Me.Close()
     End Sub
 End Class

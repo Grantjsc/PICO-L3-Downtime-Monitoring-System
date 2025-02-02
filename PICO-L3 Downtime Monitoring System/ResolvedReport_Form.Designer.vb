@@ -101,11 +101,11 @@ Partial Class ResolvedReport_Form
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI Black", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(104, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(44, 393)
+        Me.Label5.Location = New System.Drawing.Point(16, 393)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(148, 32)
+        Me.Label5.Size = New System.Drawing.Size(176, 32)
         Me.Label5.TabIndex = 10
-        Me.Label5.Text = "Next steps:"
+        Me.Label5.Text = "Action Taken:"
         '
         'txtCause
         '

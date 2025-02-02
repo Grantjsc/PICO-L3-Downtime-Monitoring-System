@@ -87,6 +87,17 @@ Namespace My
                 Return CType(Me("SQL_Server"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=""C:\LF Database\SWMaster_db.accdb"";"& _ 
+            "Persist Security Info=True;Jet OLEDB:Database Password=lfswmaster")>  _
+        Public ReadOnly Property SWMaster_dbConnectionString() As String
+            Get
+                Return CType(Me("SWMaster_dbConnectionString"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

@@ -65,7 +65,7 @@ Partial Class Add_Form
         Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = Global.PICO_L3_Downtime_Monitoring_System.My.Resources.Resources.fingerprint_BLACK_
-        Me.PictureBox1.Location = New System.Drawing.Point(23, 108)
+        Me.PictureBox1.Location = New System.Drawing.Point(23, 65)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(256, 329)
@@ -81,7 +81,7 @@ Partial Class Add_Form
         Me.Panel2.Controls.Add(Me.TextBox1)
         Me.Panel2.Controls.Add(Me.Label7)
         Me.Panel2.Controls.Add(Me.GroupBox1)
-        Me.Panel2.Location = New System.Drawing.Point(296, 108)
+        Me.Panel2.Location = New System.Drawing.Point(296, 65)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(283, 329)
@@ -267,7 +267,7 @@ Partial Class Add_Form
         Me.Panel1.Controls.Add(Me.PictureBox5)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(21, 481)
+        Me.Panel1.Location = New System.Drawing.Point(21, 438)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(557, 265)
@@ -396,7 +396,7 @@ Partial Class Add_Form
         Me.F4_Exit_btn.FillColor2 = System.Drawing.Color.Maroon
         Me.F4_Exit_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.F4_Exit_btn.ForeColor = System.Drawing.SystemColors.Control
-        Me.F4_Exit_btn.Location = New System.Drawing.Point(311, 801)
+        Me.F4_Exit_btn.Location = New System.Drawing.Point(307, 730)
         Me.F4_Exit_btn.Margin = New System.Windows.Forms.Padding(2)
         Me.F4_Exit_btn.Name = "F4_Exit_btn"
         Me.F4_Exit_btn.Size = New System.Drawing.Size(116, 49)
@@ -417,7 +417,7 @@ Partial Class Add_Form
         Me.F4_Login_btn.FillColor2 = System.Drawing.Color.LimeGreen
         Me.F4_Login_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.F4_Login_btn.ForeColor = System.Drawing.SystemColors.Control
-        Me.F4_Login_btn.Location = New System.Drawing.Point(160, 801)
+        Me.F4_Login_btn.Location = New System.Drawing.Point(156, 730)
         Me.F4_Login_btn.Margin = New System.Windows.Forms.Padding(2)
         Me.F4_Login_btn.Name = "F4_Login_btn"
         Me.F4_Login_btn.Size = New System.Drawing.Size(116, 49)
@@ -431,7 +431,7 @@ Partial Class Add_Form
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Impact", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(191, 24)
+        Me.Label2.Location = New System.Drawing.Point(190, 9)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(201, 39)
         Me.Label2.TabIndex = 84

@@ -86,10 +86,10 @@ Partial Class IssueReport_Form
         Me.cboIssue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboIssue.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cboIssue.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cboIssue.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.cboIssue.Font = New System.Drawing.Font("Segoe UI Semibold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboIssue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.cboIssue.ItemHeight = 30
-        Me.cboIssue.Items.AddRange(New Object() {"Machine", "Quality"})
+        Me.cboIssue.Items.AddRange(New Object() {"Man", "Machine", "Method", "Material", "Environment", "Measuring Instrument", "Quality"})
         Me.cboIssue.Location = New System.Drawing.Point(175, 225)
         Me.cboIssue.Name = "cboIssue"
         Me.cboIssue.ShadowDecoration.BorderRadius = 15

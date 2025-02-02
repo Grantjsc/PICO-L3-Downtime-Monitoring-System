@@ -76,7 +76,7 @@ Partial Class Form1
         Me.Guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.SeaGreen
         Me.Guna2CustomGradientPanel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2CustomGradientPanel1.Name = "Guna2CustomGradientPanel1"
-        Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(888, 58)
+        Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(853, 58)
         Me.Guna2CustomGradientPanel1.TabIndex = 0
         '
         'Label2
@@ -139,7 +139,7 @@ Partial Class Form1
         Me.Guna2GroupBox1.ShadowDecoration.Color = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Guna2GroupBox1.ShadowDecoration.Enabled = True
         Me.Guna2GroupBox1.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(12)
-        Me.Guna2GroupBox1.Size = New System.Drawing.Size(251, 845)
+        Me.Guna2GroupBox1.Size = New System.Drawing.Size(219, 751)
         Me.Guna2GroupBox1.TabIndex = 1
         Me.Guna2GroupBox1.Text = "LINE 3A"
         Me.Guna2GroupBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -158,13 +158,13 @@ Partial Class Form1
         Me.btn3A_Trimming.FillColor2 = System.Drawing.Color.LightGreen
         Me.btn3A_Trimming.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3A_Trimming.ForeColor = System.Drawing.Color.Black
-        Me.btn3A_Trimming.Location = New System.Drawing.Point(25, 751)
+        Me.btn3A_Trimming.Location = New System.Drawing.Point(25, 663)
         Me.btn3A_Trimming.Name = "btn3A_Trimming"
         Me.btn3A_Trimming.ShadowDecoration.BorderRadius = 10
         Me.btn3A_Trimming.ShadowDecoration.Depth = 17
         Me.btn3A_Trimming.ShadowDecoration.Enabled = True
         Me.btn3A_Trimming.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3A_Trimming.Size = New System.Drawing.Size(199, 67)
+        Me.btn3A_Trimming.Size = New System.Drawing.Size(162, 55)
         Me.btn3A_Trimming.TabIndex = 9
         Me.btn3A_Trimming.Text = "TRIMMING"
         '
@@ -182,13 +182,13 @@ Partial Class Form1
         Me.btn3A_2ndHeat.FillColor2 = System.Drawing.Color.LightGreen
         Me.btn3A_2ndHeat.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3A_2ndHeat.ForeColor = System.Drawing.Color.Black
-        Me.btn3A_2ndHeat.Location = New System.Drawing.Point(25, 663)
+        Me.btn3A_2ndHeat.Location = New System.Drawing.Point(25, 586)
         Me.btn3A_2ndHeat.Name = "btn3A_2ndHeat"
         Me.btn3A_2ndHeat.ShadowDecoration.BorderRadius = 10
         Me.btn3A_2ndHeat.ShadowDecoration.Depth = 17
         Me.btn3A_2ndHeat.ShadowDecoration.Enabled = True
         Me.btn3A_2ndHeat.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3A_2ndHeat.Size = New System.Drawing.Size(199, 67)
+        Me.btn3A_2ndHeat.Size = New System.Drawing.Size(162, 55)
         Me.btn3A_2ndHeat.TabIndex = 8
         Me.btn3A_2ndHeat.Text = "2ND HEAT"
         '
@@ -206,13 +206,13 @@ Partial Class Form1
         Me.btn3A_Turning.FillColor2 = System.Drawing.Color.LightGreen
         Me.btn3A_Turning.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3A_Turning.ForeColor = System.Drawing.Color.Black
-        Me.btn3A_Turning.Location = New System.Drawing.Point(25, 575)
+        Me.btn3A_Turning.Location = New System.Drawing.Point(25, 509)
         Me.btn3A_Turning.Name = "btn3A_Turning"
         Me.btn3A_Turning.ShadowDecoration.BorderRadius = 10
         Me.btn3A_Turning.ShadowDecoration.Depth = 17
         Me.btn3A_Turning.ShadowDecoration.Enabled = True
         Me.btn3A_Turning.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3A_Turning.Size = New System.Drawing.Size(199, 67)
+        Me.btn3A_Turning.Size = New System.Drawing.Size(162, 55)
         Me.btn3A_Turning.TabIndex = 7
         Me.btn3A_Turning.Text = "TURNING"
         '
@@ -230,13 +230,13 @@ Partial Class Form1
         Me.btn3A_1stHeat.FillColor2 = System.Drawing.Color.LightGreen
         Me.btn3A_1stHeat.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3A_1stHeat.ForeColor = System.Drawing.Color.Black
-        Me.btn3A_1stHeat.Location = New System.Drawing.Point(25, 487)
+        Me.btn3A_1stHeat.Location = New System.Drawing.Point(25, 432)
         Me.btn3A_1stHeat.Name = "btn3A_1stHeat"
         Me.btn3A_1stHeat.ShadowDecoration.BorderRadius = 10
         Me.btn3A_1stHeat.ShadowDecoration.Depth = 17
         Me.btn3A_1stHeat.ShadowDecoration.Enabled = True
         Me.btn3A_1stHeat.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3A_1stHeat.Size = New System.Drawing.Size(199, 67)
+        Me.btn3A_1stHeat.Size = New System.Drawing.Size(162, 55)
         Me.btn3A_1stHeat.TabIndex = 6
         Me.btn3A_1stHeat.Text = "1ST HEAT"
         '
@@ -254,13 +254,13 @@ Partial Class Form1
         Me.btn3A_PinTray.FillColor2 = System.Drawing.Color.LightGreen
         Me.btn3A_PinTray.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3A_PinTray.ForeColor = System.Drawing.Color.Black
-        Me.btn3A_PinTray.Location = New System.Drawing.Point(25, 399)
+        Me.btn3A_PinTray.Location = New System.Drawing.Point(25, 355)
         Me.btn3A_PinTray.Name = "btn3A_PinTray"
         Me.btn3A_PinTray.ShadowDecoration.BorderRadius = 10
         Me.btn3A_PinTray.ShadowDecoration.Depth = 17
         Me.btn3A_PinTray.ShadowDecoration.Enabled = True
         Me.btn3A_PinTray.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3A_PinTray.Size = New System.Drawing.Size(199, 67)
+        Me.btn3A_PinTray.Size = New System.Drawing.Size(162, 55)
         Me.btn3A_PinTray.TabIndex = 5
         Me.btn3A_PinTray.Text = "PIN TRAY"
         '
@@ -278,13 +278,13 @@ Partial Class Form1
         Me.btn3A_Picosine.FillColor2 = System.Drawing.Color.LightGreen
         Me.btn3A_Picosine.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3A_Picosine.ForeColor = System.Drawing.Color.Black
-        Me.btn3A_Picosine.Location = New System.Drawing.Point(25, 311)
+        Me.btn3A_Picosine.Location = New System.Drawing.Point(25, 278)
         Me.btn3A_Picosine.Name = "btn3A_Picosine"
         Me.btn3A_Picosine.ShadowDecoration.BorderRadius = 10
         Me.btn3A_Picosine.ShadowDecoration.Depth = 17
         Me.btn3A_Picosine.ShadowDecoration.Enabled = True
         Me.btn3A_Picosine.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3A_Picosine.Size = New System.Drawing.Size(199, 67)
+        Me.btn3A_Picosine.Size = New System.Drawing.Size(162, 55)
         Me.btn3A_Picosine.TabIndex = 4
         Me.btn3A_Picosine.Text = "PICO SINE"
         '
@@ -302,13 +302,13 @@ Partial Class Form1
         Me.btn3A_Glassing.FillColor2 = System.Drawing.Color.LightGreen
         Me.btn3A_Glassing.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3A_Glassing.ForeColor = System.Drawing.Color.Black
-        Me.btn3A_Glassing.Location = New System.Drawing.Point(25, 223)
+        Me.btn3A_Glassing.Location = New System.Drawing.Point(25, 201)
         Me.btn3A_Glassing.Name = "btn3A_Glassing"
         Me.btn3A_Glassing.ShadowDecoration.BorderRadius = 10
         Me.btn3A_Glassing.ShadowDecoration.Depth = 17
         Me.btn3A_Glassing.ShadowDecoration.Enabled = True
         Me.btn3A_Glassing.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3A_Glassing.Size = New System.Drawing.Size(199, 67)
+        Me.btn3A_Glassing.Size = New System.Drawing.Size(162, 55)
         Me.btn3A_Glassing.TabIndex = 3
         Me.btn3A_Glassing.Text = "GLASSING"
         '
@@ -326,13 +326,13 @@ Partial Class Form1
         Me.btn3A_CLI.FillColor2 = System.Drawing.Color.LightGreen
         Me.btn3A_CLI.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.btn3A_CLI.ForeColor = System.Drawing.Color.Black
-        Me.btn3A_CLI.Location = New System.Drawing.Point(25, 135)
+        Me.btn3A_CLI.Location = New System.Drawing.Point(25, 124)
         Me.btn3A_CLI.Name = "btn3A_CLI"
         Me.btn3A_CLI.ShadowDecoration.BorderRadius = 10
         Me.btn3A_CLI.ShadowDecoration.Depth = 17
         Me.btn3A_CLI.ShadowDecoration.Enabled = True
         Me.btn3A_CLI.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3A_CLI.Size = New System.Drawing.Size(199, 67)
+        Me.btn3A_CLI.Size = New System.Drawing.Size(162, 55)
         Me.btn3A_CLI.TabIndex = 2
         Me.btn3A_CLI.Text = "CLI"
         '
@@ -356,7 +356,7 @@ Partial Class Form1
         Me.btn3A_PreMelt.ShadowDecoration.Depth = 17
         Me.btn3A_PreMelt.ShadowDecoration.Enabled = True
         Me.btn3A_PreMelt.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3A_PreMelt.Size = New System.Drawing.Size(199, 67)
+        Me.btn3A_PreMelt.Size = New System.Drawing.Size(162, 55)
         Me.btn3A_PreMelt.TabIndex = 1
         Me.btn3A_PreMelt.Text = "PRE-MELT"
         '
@@ -367,7 +367,7 @@ Partial Class Form1
         Me.lblfooter1.BackColor = System.Drawing.Color.Transparent
         Me.lblfooter1.Font = New System.Drawing.Font("Nirmala UI", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfooter1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(46, Byte), Integer))
-        Me.lblfooter1.Location = New System.Drawing.Point(11, 894)
+        Me.lblfooter1.Location = New System.Drawing.Point(11, 791)
         Me.lblfooter1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblfooter1.Name = "lblfooter1"
         Me.lblfooter1.Size = New System.Drawing.Size(133, 12)
@@ -381,7 +381,7 @@ Partial Class Form1
         Me.lblfooter2.BackColor = System.Drawing.Color.Transparent
         Me.lblfooter2.Font = New System.Drawing.Font("Nirmala UI", 6.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfooter2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(46, Byte), Integer))
-        Me.lblfooter2.Location = New System.Drawing.Point(9, 905)
+        Me.lblfooter2.Location = New System.Drawing.Point(9, 802)
         Me.lblfooter2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblfooter2.Name = "lblfooter2"
         Me.lblfooter2.Size = New System.Drawing.Size(108, 12)
@@ -399,7 +399,7 @@ Partial Class Form1
         Me.PanelMaster.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelMaster.Location = New System.Drawing.Point(0, 58)
         Me.PanelMaster.Name = "PanelMaster"
-        Me.PanelMaster.Size = New System.Drawing.Size(888, 927)
+        Me.PanelMaster.Size = New System.Drawing.Size(853, 824)
         Me.PanelMaster.TabIndex = 2
         '
         'Guna2GroupBox3
@@ -420,7 +420,7 @@ Partial Class Form1
         Me.Guna2GroupBox3.ShadowDecoration.Color = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Guna2GroupBox3.ShadowDecoration.Enabled = True
         Me.Guna2GroupBox3.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(12)
-        Me.Guna2GroupBox3.Size = New System.Drawing.Size(251, 845)
+        Me.Guna2GroupBox3.Size = New System.Drawing.Size(219, 751)
         Me.Guna2GroupBox3.TabIndex = 11
         Me.Guna2GroupBox3.Text = "Wheel Coater"
         Me.Guna2GroupBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -439,13 +439,13 @@ Partial Class Form1
         Me.btnWC_Line5.FillColor2 = System.Drawing.Color.LightGreen
         Me.btnWC_Line5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnWC_Line5.ForeColor = System.Drawing.Color.Black
-        Me.btnWC_Line5.Location = New System.Drawing.Point(25, 135)
+        Me.btnWC_Line5.Location = New System.Drawing.Point(25, 124)
         Me.btnWC_Line5.Name = "btnWC_Line5"
         Me.btnWC_Line5.ShadowDecoration.BorderRadius = 10
         Me.btnWC_Line5.ShadowDecoration.Depth = 17
         Me.btnWC_Line5.ShadowDecoration.Enabled = True
         Me.btnWC_Line5.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btnWC_Line5.Size = New System.Drawing.Size(199, 67)
+        Me.btnWC_Line5.Size = New System.Drawing.Size(162, 55)
         Me.btnWC_Line5.TabIndex = 2
         Me.btnWC_Line5.Text = "Line 5"
         '
@@ -469,7 +469,7 @@ Partial Class Form1
         Me.btnWC_Line3.ShadowDecoration.Depth = 17
         Me.btnWC_Line3.ShadowDecoration.Enabled = True
         Me.btnWC_Line3.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btnWC_Line3.Size = New System.Drawing.Size(199, 67)
+        Me.btnWC_Line3.Size = New System.Drawing.Size(162, 55)
         Me.btnWC_Line3.TabIndex = 1
         Me.btnWC_Line3.Text = "Line 3"
         '
@@ -498,7 +498,7 @@ Partial Class Form1
         Me.Guna2GroupBox2.ShadowDecoration.Color = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Guna2GroupBox2.ShadowDecoration.Enabled = True
         Me.Guna2GroupBox2.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(12)
-        Me.Guna2GroupBox2.Size = New System.Drawing.Size(251, 845)
+        Me.Guna2GroupBox2.Size = New System.Drawing.Size(219, 751)
         Me.Guna2GroupBox2.TabIndex = 10
         Me.Guna2GroupBox2.Text = "LINE 3B"
         Me.Guna2GroupBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -517,13 +517,13 @@ Partial Class Form1
         Me.btn3B_Trimming.FillColor2 = System.Drawing.Color.LightGreen
         Me.btn3B_Trimming.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3B_Trimming.ForeColor = System.Drawing.Color.Black
-        Me.btn3B_Trimming.Location = New System.Drawing.Point(25, 751)
+        Me.btn3B_Trimming.Location = New System.Drawing.Point(25, 663)
         Me.btn3B_Trimming.Name = "btn3B_Trimming"
         Me.btn3B_Trimming.ShadowDecoration.BorderRadius = 10
         Me.btn3B_Trimming.ShadowDecoration.Depth = 17
         Me.btn3B_Trimming.ShadowDecoration.Enabled = True
         Me.btn3B_Trimming.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3B_Trimming.Size = New System.Drawing.Size(199, 67)
+        Me.btn3B_Trimming.Size = New System.Drawing.Size(162, 55)
         Me.btn3B_Trimming.TabIndex = 9
         Me.btn3B_Trimming.Text = "TRIMMING"
         '
@@ -541,13 +541,13 @@ Partial Class Form1
         Me.btn3B_2ndHeat.FillColor2 = System.Drawing.Color.LightGreen
         Me.btn3B_2ndHeat.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3B_2ndHeat.ForeColor = System.Drawing.Color.Black
-        Me.btn3B_2ndHeat.Location = New System.Drawing.Point(25, 663)
+        Me.btn3B_2ndHeat.Location = New System.Drawing.Point(25, 586)
         Me.btn3B_2ndHeat.Name = "btn3B_2ndHeat"
         Me.btn3B_2ndHeat.ShadowDecoration.BorderRadius = 10
         Me.btn3B_2ndHeat.ShadowDecoration.Depth = 17
         Me.btn3B_2ndHeat.ShadowDecoration.Enabled = True
         Me.btn3B_2ndHeat.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3B_2ndHeat.Size = New System.Drawing.Size(199, 67)
+        Me.btn3B_2ndHeat.Size = New System.Drawing.Size(162, 55)
         Me.btn3B_2ndHeat.TabIndex = 8
         Me.btn3B_2ndHeat.Text = "2ND HEAT"
         '
@@ -565,13 +565,13 @@ Partial Class Form1
         Me.btn3B_Turning.FillColor2 = System.Drawing.Color.LightGreen
         Me.btn3B_Turning.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3B_Turning.ForeColor = System.Drawing.Color.Black
-        Me.btn3B_Turning.Location = New System.Drawing.Point(25, 575)
+        Me.btn3B_Turning.Location = New System.Drawing.Point(25, 509)
         Me.btn3B_Turning.Name = "btn3B_Turning"
         Me.btn3B_Turning.ShadowDecoration.BorderRadius = 10
         Me.btn3B_Turning.ShadowDecoration.Depth = 17
         Me.btn3B_Turning.ShadowDecoration.Enabled = True
         Me.btn3B_Turning.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3B_Turning.Size = New System.Drawing.Size(199, 67)
+        Me.btn3B_Turning.Size = New System.Drawing.Size(162, 55)
         Me.btn3B_Turning.TabIndex = 7
         Me.btn3B_Turning.Text = "TURNING"
         '
@@ -589,13 +589,13 @@ Partial Class Form1
         Me.btn3B_1stHeat.FillColor2 = System.Drawing.Color.LightGreen
         Me.btn3B_1stHeat.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3B_1stHeat.ForeColor = System.Drawing.Color.Black
-        Me.btn3B_1stHeat.Location = New System.Drawing.Point(25, 487)
+        Me.btn3B_1stHeat.Location = New System.Drawing.Point(25, 432)
         Me.btn3B_1stHeat.Name = "btn3B_1stHeat"
         Me.btn3B_1stHeat.ShadowDecoration.BorderRadius = 10
         Me.btn3B_1stHeat.ShadowDecoration.Depth = 17
         Me.btn3B_1stHeat.ShadowDecoration.Enabled = True
         Me.btn3B_1stHeat.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3B_1stHeat.Size = New System.Drawing.Size(199, 67)
+        Me.btn3B_1stHeat.Size = New System.Drawing.Size(162, 55)
         Me.btn3B_1stHeat.TabIndex = 6
         Me.btn3B_1stHeat.Text = "1ST HEAT"
         '
@@ -613,13 +613,13 @@ Partial Class Form1
         Me.btn3B_PinTray.FillColor2 = System.Drawing.Color.LightGreen
         Me.btn3B_PinTray.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3B_PinTray.ForeColor = System.Drawing.Color.Black
-        Me.btn3B_PinTray.Location = New System.Drawing.Point(25, 399)
+        Me.btn3B_PinTray.Location = New System.Drawing.Point(25, 355)
         Me.btn3B_PinTray.Name = "btn3B_PinTray"
         Me.btn3B_PinTray.ShadowDecoration.BorderRadius = 10
         Me.btn3B_PinTray.ShadowDecoration.Depth = 17
         Me.btn3B_PinTray.ShadowDecoration.Enabled = True
         Me.btn3B_PinTray.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3B_PinTray.Size = New System.Drawing.Size(199, 67)
+        Me.btn3B_PinTray.Size = New System.Drawing.Size(162, 55)
         Me.btn3B_PinTray.TabIndex = 5
         Me.btn3B_PinTray.Text = "PIN TRAY"
         '
@@ -637,13 +637,13 @@ Partial Class Form1
         Me.btn3B_Picosine.FillColor2 = System.Drawing.Color.LightGreen
         Me.btn3B_Picosine.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3B_Picosine.ForeColor = System.Drawing.Color.Black
-        Me.btn3B_Picosine.Location = New System.Drawing.Point(25, 311)
+        Me.btn3B_Picosine.Location = New System.Drawing.Point(25, 278)
         Me.btn3B_Picosine.Name = "btn3B_Picosine"
         Me.btn3B_Picosine.ShadowDecoration.BorderRadius = 10
         Me.btn3B_Picosine.ShadowDecoration.Depth = 17
         Me.btn3B_Picosine.ShadowDecoration.Enabled = True
         Me.btn3B_Picosine.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3B_Picosine.Size = New System.Drawing.Size(199, 67)
+        Me.btn3B_Picosine.Size = New System.Drawing.Size(162, 55)
         Me.btn3B_Picosine.TabIndex = 4
         Me.btn3B_Picosine.Text = "PICO SINE"
         '
@@ -661,13 +661,13 @@ Partial Class Form1
         Me.btn3B_Glassing.FillColor2 = System.Drawing.Color.LightGreen
         Me.btn3B_Glassing.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3B_Glassing.ForeColor = System.Drawing.Color.Black
-        Me.btn3B_Glassing.Location = New System.Drawing.Point(25, 223)
+        Me.btn3B_Glassing.Location = New System.Drawing.Point(25, 201)
         Me.btn3B_Glassing.Name = "btn3B_Glassing"
         Me.btn3B_Glassing.ShadowDecoration.BorderRadius = 10
         Me.btn3B_Glassing.ShadowDecoration.Depth = 17
         Me.btn3B_Glassing.ShadowDecoration.Enabled = True
         Me.btn3B_Glassing.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3B_Glassing.Size = New System.Drawing.Size(199, 67)
+        Me.btn3B_Glassing.Size = New System.Drawing.Size(162, 55)
         Me.btn3B_Glassing.TabIndex = 3
         Me.btn3B_Glassing.Text = "GLASSING"
         '
@@ -685,13 +685,13 @@ Partial Class Form1
         Me.btn3B_CLI.FillColor2 = System.Drawing.Color.LightGreen
         Me.btn3B_CLI.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3B_CLI.ForeColor = System.Drawing.Color.Black
-        Me.btn3B_CLI.Location = New System.Drawing.Point(25, 135)
+        Me.btn3B_CLI.Location = New System.Drawing.Point(25, 124)
         Me.btn3B_CLI.Name = "btn3B_CLI"
         Me.btn3B_CLI.ShadowDecoration.BorderRadius = 10
         Me.btn3B_CLI.ShadowDecoration.Depth = 17
         Me.btn3B_CLI.ShadowDecoration.Enabled = True
         Me.btn3B_CLI.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3B_CLI.Size = New System.Drawing.Size(199, 67)
+        Me.btn3B_CLI.Size = New System.Drawing.Size(162, 55)
         Me.btn3B_CLI.TabIndex = 2
         Me.btn3B_CLI.Text = "CLI"
         '
@@ -715,7 +715,7 @@ Partial Class Form1
         Me.btn3B_PreMelt.ShadowDecoration.Depth = 17
         Me.btn3B_PreMelt.ShadowDecoration.Enabled = True
         Me.btn3B_PreMelt.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
-        Me.btn3B_PreMelt.Size = New System.Drawing.Size(199, 67)
+        Me.btn3B_PreMelt.Size = New System.Drawing.Size(162, 55)
         Me.btn3B_PreMelt.TabIndex = 1
         Me.btn3B_PreMelt.Text = "PRE-MELT"
         '
@@ -744,7 +744,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(888, 985)
+        Me.ClientSize = New System.Drawing.Size(853, 882)
         Me.ContextMenuStrip = Me.Guna2ContextMenuStrip1
         Me.Controls.Add(Me.PanelMaster)
         Me.Controls.Add(Me.Guna2CustomGradientPanel1)
@@ -753,6 +753,7 @@ Partial Class Form1
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Guna2CustomGradientPanel1.ResumeLayout(False)
         Me.Guna2CustomGradientPanel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -338,6 +338,7 @@ End Module
 
 Module SendEmail_Module
     Public Email As MailMessage
+    Public Acknowledge As Boolean = False
 
     Sub Send_Issue_Email()
 
@@ -376,11 +377,15 @@ Module SendEmail_Module
                         Please refer to the table below for more information on the line issue.;<br><br>
                           <table>
                             <tr>
-                              <td style='color: white; font-weight: bold; background-color: Red; text-align: center;'>Process:</td>
+                              <td style='color: white; font-weight: bold; background-color: Red; text-align: center;'>REPORTED BY:</td>
+                              <td>" & Biometric_Name & "</td>
+                            </tr>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red; text-align: center;'>PROCESS:</td>
                               <td>" & Process & "</td>
                             </tr>
                             <tr>
-                              <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>Issue:</td>
+                              <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>ISSUE:</td>
                               <td>" & Issue & "</td>
                             </tr>
                             <tr>
@@ -474,23 +479,27 @@ Module SendEmail_Module
                         Please refer to the table below for more information on the line issue.;<br><br>
                           <table>
                             <tr>
-                              <td style='color: white; font-weight: bold; background-color: Green; text-align: center;'>Process:</td>
+                              <td style='color: white; font-weight: bold; background-color: Green; text-align: center;'>PROCESS:</td>
                               <td>" & Process & "</td>
                             </tr>
                             <tr>
-                              <td style='color: white; font-weight: bold; background-color: Green; text-align: center;'>Duration:</td>
+                              <td style='color: white; font-weight: bold; background-color: Green; text-align: center;'>DURATION:</td>
                               <td>" & DT_Duration & "</td>
                             </tr>
                             <tr>
-                              <td style='color: white; font-weight: bold; background-color: Green;text-align: center;'>Cause:</td>
+                              <td style='color: white; font-weight: bold; background-color: Green;text-align: center;'>CAUSE:</td>
                               <td>" & Cause & "</td>
                             </tr>
                             <tr>
-                              <td style='color: white; font-weight: bold; background-color: Green;text-align: center;'>Status:</td>
+                              <td style='color: white; font-weight: bold; background-color: Green;text-align: center;'>STATUS:</td>
                               <td>" & Status & "</td>
                             </tr>
+                               <tr>
+                              <td style='color: white; font-weight: bold; background-color: Green;text-align: center;'>PIC:</td>
+                              <td>" & Biometric_Name & "</td>
+                            </tr>
                             <tr>
-                              <td style='color: white; font-weight: bold; background-color: Green;text-align: center;'>Next Steps:</td>
+                              <td style='color: white; font-weight: bold; background-color: Green;text-align: center;'>ACTION TAKEN:</td>
                               <td>" & Next_S & "</td>
                             </tr>
                           </table>
@@ -580,23 +589,27 @@ Module SendEmail_Module
                         Please refer to the table below for more information on the line issue.;<br><br>
                           <table>
                             <tr>
-                              <td style='color: black; font-weight: bold; background-color: gold; text-align: center;'>Process:</td>
+                              <td style='color: black; font-weight: bold; background-color: gold; text-align: center;'>PROCESS:</td>
                               <td>" & Process & "</td>
                             </tr>
                             <tr>
-                              <td style='color: black; font-weight: bold; background-color: gold; text-align: center;'>Duration:</td>
+                              <td style='color: black; font-weight: bold; background-color: gold; text-align: center;'>DURATION:</td>
                               <td>" & DT_Duration & "</td>
                             </tr>
                             <tr>
-                              <td style='color: black; font-weight: bold; background-color: gold;text-align: center;'>Cause:</td>
+                              <td style='color: black; font-weight: bold; background-color: gold;text-align: center;'>CAUSE:</td>
                               <td>" & Cause & "</td>
                             </tr>
                             <tr>
-                              <td style='color: black; font-weight: bold; background-color: gold;text-align: center;'>Status:</td>
+                              <td style='color: black; font-weight: bold; background-color: gold;text-align: center;'>STATUS:</td>
                               <td>" & Status & "</td>
                             </tr>
+                               <tr>
+                              <td style='color: black; font-weight: bold; background-color: gold;text-align: center;'>PIC:</td>
+                              <td>" & Biometric_Name & "</td>
+                            </tr>
                             <tr>
-                              <td style='color: black; font-weight: bold; background-color: gold;text-align: center;'>Next Steps:</td>
+                              <td style='color: black; font-weight: bold; background-color: gold;text-align: center;'>ACTION TAKEN:</td>
                               <td>" & Next_S & "</td>
                             </tr>
                           </table>
@@ -1141,7 +1154,7 @@ Module Function_Module
     Sub Line3A_PreMelt_DblClick()
         Get_3A_PreMelt_Status()
         If Line3A_PreMelt_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3A"
@@ -1176,7 +1189,7 @@ Module Function_Module
 
         Get_3A_CLI_Status()
         If Line3A_CLI_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3A"
@@ -1211,7 +1224,7 @@ Module Function_Module
 
         Get_3A_Glassing_Status()
         If Line3A_Glassing_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3A"
@@ -1246,7 +1259,7 @@ Module Function_Module
 
         Get_3A_Picosine_Status()
         If Line3A_Picosine_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3A"
@@ -1281,7 +1294,7 @@ Module Function_Module
 
         Get_3A_PinTray_Status()
         If Line3A_PinTray_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3A"
@@ -1316,7 +1329,7 @@ Module Function_Module
 
         Get_3A_1stHeat_Status()
         If Line3A_1stHeat_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3A"
@@ -1351,7 +1364,7 @@ Module Function_Module
 
         Get_3A_Turning_Status()
         If Line3A_Turning_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3A"
@@ -1386,7 +1399,7 @@ Module Function_Module
 
         Get_3A_2ndHeat_Status()
         If Line3A_2ndHeat_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3A"
@@ -1421,7 +1434,7 @@ Module Function_Module
 
         Get_3A_Trimming_Status()
         If Line3A_Trimming_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3A"
@@ -1457,7 +1470,7 @@ Module Function_Module
     Sub Line3B_PreMelt_DblClick()
         Get_3B_PreMelt_Status()
         If Line3B_PreMelt_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3B"
@@ -1491,7 +1504,7 @@ Module Function_Module
     Sub Line3B_CLI_DblClick()
         Get_3B_CLI_Status()
         If Line3B_CLI_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3B"
@@ -1525,7 +1538,7 @@ Module Function_Module
     Sub Line3B_Glassing_DblClick()
         Get_3B_Glassing_Status()
         If Line3B_Glassing_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3B"
@@ -1559,7 +1572,7 @@ Module Function_Module
     Sub Line3B_Picosine_DblClick()
         Get_3B_Picosine_Status()
         If Line3B_Picosine_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3B"
@@ -1593,7 +1606,7 @@ Module Function_Module
     Sub Line3B_PinTray_DblClick()
         Get_3B_PinTray_Status()
         If Line3B_PinTray_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3B"
@@ -1627,7 +1640,7 @@ Module Function_Module
     Sub Line3B_1stHeat_DblClick()
         Get_3B_1stHeat_Status()
         If Line3B_1stHeat_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3B"
@@ -1661,7 +1674,7 @@ Module Function_Module
     Sub Line3B_Turning_DblClick()
         Get_3B_Turning_Status()
         If Line3B_Turning_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3B"
@@ -1695,7 +1708,7 @@ Module Function_Module
     Sub Line3B_2ndHeat_DblClick()
         Get_3B_2ndHeat_Status()
         If Line3B_2ndHeat_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3B"
@@ -1729,7 +1742,7 @@ Module Function_Module
     Sub Line3B_Trimming_DblClick()
         Get_3B_Trimming_Status()
         If Line3B_Trimming_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3B"
@@ -1765,7 +1778,7 @@ Module Function_Module
     Sub WC_Lin3_DblClick()
         Get_WC_L3_Status()
         If WheelCoater_L3_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3"
@@ -1799,7 +1812,7 @@ Module Function_Module
     Sub WC_Lin5_DblClick()
         Get_WC_L5_Status()
         If WheelCoater_L5_ErrorStat = 0 Then
-            Master_login.Label1.Text = "Please scan your finger. Operator, PO3, SPC or Technician only"
+            Master_login.Label1.Text = "Please scan your finger."
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 5"
@@ -2081,16 +2094,54 @@ Module SQL_Server_Query_Module
         End Try
 
     End Sub
+
+    Sub SQL_Ongoing_LineStat()
+
+        Try
+            Dim Ongoing_Stat As Integer = 2
+
+            Dim Line_Pro As String = ResolvedReport_Form.txtLine.Text & " " & ResolvedReport_Form.txtProcess.Text
+            Dim query As String = "UPDATE PICO_DT_L3_Sta_tb 
+                                        SET Status = @ProStat
+                                        WHERE LineProcess = @LP"
+
+            Using command As New SqlCommand(query, SQLDbconnection)
+                command.Parameters.AddWithValue("@ProStat", Ongoing_Stat)
+                command.Parameters.AddWithValue("@LP", Line_Pro)
+                SQLConOpen()
+                command.ExecuteNonQuery()
+                SQLConClose()
+            End Using
+
+        Catch ex As Exception
+            MsgBox(ex.Message, vbCritical)
+        End Try
+
+    End Sub
 End Module
 
 Module Saving_Module
-
+    'I:\Dept_Pico\PICO Process Engineering\20. Sheila\Reference Tables for PowerBI Report\PICO Line 3 Downtime History\" & Year & "\" & Month & "\PICO Line 3 History.csv
+    'C:\Backup\PICO Line 3 Downtime History\" & Year & "\" & Month & "\PICO Line 3 History.csv
     Public History As String
 
     Public Year As String = Date.Now.ToString("yyyy")
     Public Month As String = Date.Now.ToString("MMMM")
     Public DateToday As String = Date.Now.ToString("dd")
-    Public FolderPath As String = "C:\Backup\PICO Line 3 Downtime History\" & Year & "\" & Month & "\PICO Line 3 History.csv "
+    Public FolderPath As String = "\\btfile001\data\Dept_Pico\PICO Downtime Alarm System\" & Year & "\" & Month & "\PICO Line 3 History.csv"
+
+    Public Function IsCSVFileEmpty(filePath As String) As Boolean
+        ' Check if the file exists
+        If File.Exists(filePath) Then
+            ' Read the entire file content as a string
+            Dim fileContent As String = File.ReadAllText(filePath)
+            ' Check if the file content contains any non-whitespace characters
+            Return String.IsNullOrWhiteSpace(fileContent)
+        Else
+            ' File doesn't exist, so it's considered empty
+            Return True
+        End If
+    End Function
 
     Sub CheckPath()
         Dim dateNtime As String = Date.Now.ToString("MM-dd-yy HH_mm")
@@ -2103,7 +2154,8 @@ Module Saving_Module
                 Directory.CreateDirectory(directoryPath)
             End If
 
-            SaveHistory()
+            'SaveHistory()
+            CheckCSV() ' 
 
         Catch ex As Exception
             MessageBox.Show("Error copying data: " & ex.Message)
@@ -2122,6 +2174,28 @@ Module Saving_Module
         History = History & LinePro & "," & Rep_name & "," & Reported & "," & Resolved & "," & Totalhrs & "," & ResolvedReport_Form.txtCause.Text & "," & Biometric_Name & vbCrLf
 
         My.Computer.FileSystem.WriteAllText(FolderPath, History, True)
+    End Sub
+
+    Sub SaveHistory_NoHeader()
+
+        Dim LinePro As String = ResolvedReport_Form.txtLine.Text & " " & ResolvedReport_Form.txtProcess.Text
+
+        Dim dateNtime As String = Date.Now.ToString("MM/dd/yyyy hh:mmtt")
+
+        'History = vbCrLf & """Line Process""" & "," & """Reported by""" & "," & """Reported Time""" & "," & """Resolved Time""" & "," & """Duration(hrs)""" & "," & """Cause""" & "," & """Person in Charge""" & vbCrLf
+        History = LinePro & "," & Rep_name & "," & Reported & "," & Resolved & "," & Totalhrs & "," & ResolvedReport_Form.txtCause.Text & "," & Biometric_Name & vbCrLf
+
+        My.Computer.FileSystem.WriteAllText(FolderPath, History, True)
+    End Sub
+
+    Sub CheckCSV()
+        Dim isFileEmpty As Boolean = IsCSVFileEmpty(FolderPath)
+        If isFileEmpty Then
+            SaveHistory()
+        Else
+            'MsgBox("The file is not empty!", MsgBoxStyle.Critical)
+            SaveHistory_NoHeader()
+        End If
     End Sub
 
 End Module
