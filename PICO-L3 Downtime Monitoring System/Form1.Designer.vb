@@ -22,8 +22,10 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -55,6 +57,9 @@ Partial Class Form1
         Me.btn3B_PreMelt = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AddAssociateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Timer1hour = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer2hours = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer3hours = New System.Windows.Forms.Timer(Me.components)
         Me.Guna2CustomGradientPanel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2GroupBox1.SuspendLayout()
@@ -66,6 +71,7 @@ Partial Class Form1
         '
         'Guna2CustomGradientPanel1
         '
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.Button1)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label2)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label1)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.PictureBox1)
@@ -78,6 +84,16 @@ Partial Class Form1
         Me.Guna2CustomGradientPanel1.Name = "Guna2CustomGradientPanel1"
         Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(853, 58)
         Me.Guna2CustomGradientPanel1.TabIndex = 0
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(713, 13)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'Label2
         '
@@ -740,6 +756,18 @@ Partial Class Form1
         Me.AddAssociateToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
         Me.AddAssociateToolStripMenuItem.Text = "Add Associate"
         '
+        'Timer1hour
+        '
+        Me.Timer1hour.Interval = 900000
+        '
+        'Timer2hours
+        '
+        Me.Timer2hours.Interval = 960000
+        '
+        'Timer3hours
+        '
+        Me.Timer3hours.Interval = 1020000
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -799,4 +827,8 @@ Partial Class Form1
     Friend WithEvents Guna2GroupBox3 As Guna.UI2.WinForms.Guna2GroupBox
     Friend WithEvents btnWC_Line5 As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnWC_Line3 As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Timer1hour As Timer
+    Friend WithEvents Timer2hours As Timer
+    Friend WithEvents Timer3hours As Timer
 End Class

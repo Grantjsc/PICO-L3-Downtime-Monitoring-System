@@ -4,6 +4,10 @@
         'btn3A_PreMelt.FillColor2 = Color.Red
         'btn3A_PreMelt.ForeColor = Color.White
 
+        Timer1hour.Enabled = True
+        Timer2hours.Enabled = True
+        Timer3hours.Enabled = True
+
         GetAll_Line_Process_Status()
         Check_LineIssue_Status()
     End Sub
@@ -181,5 +185,27 @@
 
     Private Sub btnWC_Line5_Click(sender As Object, e As EventArgs) Handles btnWC_Line5.Click
         WC_Lin5_DblClick()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'Check_1hour_Down()
+        'Check_2hour_Down()
+        'Check_3hour_Down()
+
+        'Check_Line_For_Send = "Sample2 Line2"
+
+        'Check_Whos_Recipient()
+    End Sub
+
+    Private Sub Timer1hour_Tick(sender As Object, e As EventArgs) Handles Timer1hour.Tick
+        Check_1hour_Down()
+    End Sub
+
+    Private Sub Timer2hours_Tick(sender As Object, e As EventArgs) Handles Timer2hours.Tick
+        Check_2hour_Down()
+    End Sub
+
+    Private Sub Timer3hours_Tick(sender As Object, e As EventArgs) Handles Timer3hours.Tick
+        Check_3hour_Down()
     End Sub
 End Class

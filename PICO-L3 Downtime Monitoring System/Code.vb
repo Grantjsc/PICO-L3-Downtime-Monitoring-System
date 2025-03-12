@@ -28,6 +28,12 @@ Module AppConfig_Module
     Public WheelCoater_L3_ErrorStat As Integer
     Public WheelCoater_L5_ErrorStat As Integer
 
+    Public Onehr_Downtime_Stat As String
+    Public Twohrs_Downtime_Stat As String
+    Public Threehrs_Downtime_Stat As String
+
+    Public Update_HourStatus As String
+
 
     '***************** Get Line 3A process status *******************
 
@@ -334,6 +340,52 @@ Module AppConfig_Module
         ConfigurationManager.RefreshSection("appSettings") 'refresh
     End Sub
 
+
+    '********************************* < For Escalation > ***************************
+    '--------------------------------- < Get Hour Value > ---------------------------
+
+    Sub Get_Onehr_Downtime_Stat()
+        Dim HoursStat As String = System.Configuration.ConfigurationManager.AppSettings("1hr_Stat")
+        Console.WriteLine(HoursStat)
+
+        Onehr_Downtime_Stat = HoursStat
+    End Sub
+
+    Sub Get_Twohrs_Downtime_Stat()
+        Dim HoursStat As String = System.Configuration.ConfigurationManager.AppSettings("2hr_Stat")
+        Console.WriteLine(HoursStat)
+
+        Twohrs_Downtime_Stat = HoursStat
+    End Sub
+
+    Sub Get_Threehrs_Downtime_Stat()
+        Dim HoursStat As String = System.Configuration.ConfigurationManager.AppSettings("3hr_Stat")
+        Console.WriteLine(HoursStat)
+
+        Threehrs_Downtime_Stat = HoursStat
+    End Sub
+
+    '--------------------------------- < Udpdate Hour Value > ---------------------------
+    Sub Update_Onehr_Downtime_Stat()
+        config.AppSettings.Settings("1hr_Stat").Value = Update_HourStatus ' Update 
+        config.Save(ConfigurationSaveMode.Modified) ' save the new value
+
+        ConfigurationManager.RefreshSection("appSettings") 'refresh
+    End Sub
+
+    Sub Update_Twohrs_Downtime_Stat()
+        config.AppSettings.Settings("2hr_Stat").Value = Update_HourStatus ' Update 
+        config.Save(ConfigurationSaveMode.Modified) ' save the new value
+
+        ConfigurationManager.RefreshSection("appSettings") 'refresh
+    End Sub
+
+    Sub Update_Threehrs_Downtime_Stat()
+        config.AppSettings.Settings("3hr_Stat").Value = Update_HourStatus ' Update 
+        config.Save(ConfigurationSaveMode.Modified) ' save the new value
+
+        ConfigurationManager.RefreshSection("appSettings") 'refresh
+    End Sub
 End Module
 
 Module SendEmail_Module
@@ -412,16 +464,25 @@ Module SendEmail_Module
 
         UpdateError_LineProcess_Status() 'Update the Status(AppConfig) and change button color
         SQL_Report_LineStat() ' Update stat in SQL Server database to notify techs
+
+        'Form1.Timer1hour.Enabled = True
+        'Form1.Timer2hours.Enabled = True
+        'Form1.Timer3hours.Enabled = True
         IssueReport_Form.Close()
 
     End Sub
 
     Public LineIssue_Duration As String
     Public Totalhrs As Decimal
+    Public Check_Line_For_Send As String
 
     Sub Send_DowntimeRep_Email()
 
-        Get_Emails() 'Get the list of email from offline database
+        Check_Line_For_Send = ResolvedReport_Form.txtLine.Text & " " & ResolvedReport_Form.txtProcess.Text
+
+        Check_Whos_Recipient() 'Get the list of email from offline database based on Escalation Plan
+
+        'Get_Emails() 'Get the list of email from offline database
         Thread.Sleep(100)
         Log_TimeResolved()
         Thread.Sleep(100)
@@ -449,7 +510,7 @@ Module SendEmail_Module
         Dim Status As String = ResolvedReport_Form.cboStatus.Text
         Dim Next_S As String = ResolvedReport_Form.txtNextStep.Text
 
-        Dim EmailAdd As String = Emails_Db
+        Dim EmailAdd As String = Escalation_Level_Recipient
         Dim Recipients As String() = EmailAdd.Split(";"c)
         Dim SMTP As New SmtpClient
 
@@ -534,7 +595,11 @@ Module SendEmail_Module
 
     Sub Send_DowntimeRep_OnGoing_Email()
 
-        Get_Emails() 'Get the list of email from offline database
+        Check_Line_For_Send = ResolvedReport_Form.txtLine.Text & " " & ResolvedReport_Form.txtProcess.Text
+
+        Check_Whos_Recipient() 'Get the list of email from offline database based on Escalation Plan
+
+        'Get_Emails() 'Get the list of email from offline database
         Thread.Sleep(100)
         Get_Duration() 'Get the reported time and resolved time
 
@@ -559,7 +624,7 @@ Module SendEmail_Module
         Dim Status As String = ResolvedReport_Form.cboStatus.Text
         Dim Next_S As String = ResolvedReport_Form.txtNextStep.Text
 
-        Dim EmailAdd As String = Emails_Db
+        Dim EmailAdd As String = Escalation_Level_Recipient
         Dim Recipients As String() = EmailAdd.Split(";"c)
         Dim SMTP As New SmtpClient
 
@@ -631,6 +696,238 @@ Module SendEmail_Module
         SMTP.SendAsync(Email, Nothing)
 
         ResolvedReport_Form.Close()
+
+    End Sub
+
+    '===============================< For Escalation Plan >================================
+    Sub Send_Issue_Email_OneHour()
+
+        Get_1hour_Emails()
+
+        Dim Process As String = Escalation_Process
+        Dim Line As String = Escalation_Line
+        Dim Issue As String = Escalation_Issue
+        Dim Reportby As String = Escalation_ReportedBy
+        Dim EmailAdd As String = OneHr_Emails_Db
+        Dim Recipients As String() = EmailAdd.Split(";"c)
+        Dim SMTP As New SmtpClient
+
+        Email = New MailMessage
+
+        For Each Reciever As String In Recipients
+            Email.To.Add(New MailAddress(Reciever.ToString()))
+        Next
+
+        'add this at table style for simple table
+        'border-collapse: collapse;
+
+        Email.From = New MailAddress("PICOLine3_Dowtime@littelfuse.com")
+        Email.Subject = "DOWNTIME ALERT: " & Line
+        Email.Body = "<style>
+                        td {
+                          border:1px solid black;
+                        }
+                        
+                        table {
+                            border:1px solid black;
+                            width: 60%;
+                        }
+                        </style>
+                      
+                      <div style='font-family: Arial, sans-serif; font-size: 12pt;'>
+                        Please refer to the table below for more information on the line issue.;<br><br>
+                          <table>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red; text-align: center;'>REPORTED BY:</td>
+                              <td>" & Reportby & "</td>
+                            </tr>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red; text-align: center;'>PROCESS:</td>
+                              <td>" & Process & "</td>
+                            </tr>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>ISSUE:</td>
+                              <td>" & Issue & "</td>
+                            </tr>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>PIC:</td>
+                              <td>PROCESS/PRODUCT/EQUIPMENT/QA/PRODUCTION</td>
+                            </tr>
+                          </table>
+                        </div>
+                        <br> 
+
+                        <small style='color:Gray;'>
+                          <i>This is a system generated mail. Please do not reply.</i>
+                        </small>"
+
+
+        Email.IsBodyHtml = True
+        ' Set high importance
+        Email.Priority = MailPriority.High
+
+        'AddHandler SMTP.SendCompleted, AddressOf SendCompletedCallback
+
+        SMTP.Host = "mailrelay.america.littelfuse.com"
+        SMTP.SendAsync(Email, Nothing)
+
+        Update_HourStatus = "True"
+        Update_Onehr_Downtime_Stat()
+
+
+    End Sub
+
+    Sub Send_Issue_Email_TwoHours()
+
+        Get_2hours_Emails()
+
+        Dim Process As String = Escalation_Process_Two
+        Dim Line As String = Escalation_Line_Two
+        Dim Issue As String = Escalation_Issue_Two
+        Dim Reportby As String = Escalation_ReportedBy_Two
+        Dim EmailAdd As String = TwoHr_Emails_Db
+        Dim Recipients As String() = EmailAdd.Split(";"c)
+        Dim SMTP As New SmtpClient
+
+        Email = New MailMessage
+
+        For Each Reciever As String In Recipients
+            Email.To.Add(New MailAddress(Reciever.ToString()))
+        Next
+
+        'add this at table style for simple table
+        'border-collapse: collapse;
+
+        Email.From = New MailAddress("PICOLine3_Dowtime@littelfuse.com")
+        Email.Subject = "DOWNTIME ALERT: " & Line
+        Email.Body = "<style>
+                        td {
+                          border:1px solid black;
+                        }
+                        
+                        table {
+                            border:1px solid black;
+                            width: 60%;
+                        }
+                        </style>
+                      
+                      <div style='font-family: Arial, sans-serif; font-size: 12pt;'>
+                        Please refer to the table below for more information on the line issue.;<br><br>
+                          <table>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red; text-align: center;'>REPORTED BY:</td>
+                              <td>" & Reportby & "</td>
+                            </tr>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red; text-align: center;'>PROCESS:</td>
+                              <td>" & Process & "</td>
+                            </tr>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>ISSUE:</td>
+                              <td>" & Issue & "</td>
+                            </tr>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>PIC:</td>
+                              <td>PROCESS/PRODUCT/EQUIPMENT/QA/PRODUCTION</td>
+                            </tr>
+                          </table>
+                        </div>
+                        <br> 
+
+                        <small style='color:Gray;'>
+                          <i>This is a system generated mail. Please do not reply.</i>
+                        </small>"
+
+
+        Email.IsBodyHtml = True
+        ' Set high importance
+        Email.Priority = MailPriority.High
+
+        'AddHandler SMTP.SendCompleted, AddressOf SendCompletedCallback
+
+        SMTP.Host = "mailrelay.america.littelfuse.com"
+        SMTP.SendAsync(Email, Nothing)
+
+        Update_HourStatus = "True"
+        Update_Twohrs_Downtime_Stat()
+
+
+    End Sub
+
+    Sub Send_Issue_Email_ThreeHours()
+
+        Get_3hours_Emails()
+
+        Dim Process As String = Escalation_Process_Three
+        Dim Line As String = Escalation_Line_Three
+        Dim Issue As String = Escalation_Issue_Three
+        Dim Reportby As String = Escalation_ReportedBy_Three
+        Dim EmailAdd As String = ThreeHr_Emails_Db
+        Dim Recipients As String() = EmailAdd.Split(";"c)
+        Dim SMTP As New SmtpClient
+
+        Email = New MailMessage
+
+        For Each Reciever As String In Recipients
+            Email.To.Add(New MailAddress(Reciever.ToString()))
+        Next
+
+        'add this at table style for simple table
+        'border-collapse: collapse;
+
+        Email.From = New MailAddress("PICOLine3_Dowtime@littelfuse.com")
+        Email.Subject = "DOWNTIME ALERT: " & Line
+        Email.Body = "<style>
+                        td {
+                          border:1px solid black;
+                        }
+                        
+                        table {
+                            border:1px solid black;
+                            width: 60%;
+                        }
+                        </style>
+                      
+                      <div style='font-family: Arial, sans-serif; font-size: 12pt;'>
+                        Please refer to the table below for more information on the line issue.;<br><br>
+                          <table>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red; text-align: center;'>REPORTED BY:</td>
+                              <td>" & Reportby & "</td>
+                            </tr>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red; text-align: center;'>PROCESS:</td>
+                              <td>" & Process & "</td>
+                            </tr>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>ISSUE:</td>
+                              <td>" & Issue & "</td>
+                            </tr>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>PIC:</td>
+                              <td>PROCESS/PRODUCT/EQUIPMENT/QA/PRODUCTION</td>
+                            </tr>
+                          </table>
+                        </div>
+                        <br> 
+
+                        <small style='color:Gray;'>
+                          <i>This is a system generated mail. Please do not reply.</i>
+                        </small>"
+
+
+        Email.IsBodyHtml = True
+        ' Set high importance
+        Email.Priority = MailPriority.High
+
+        'AddHandler SMTP.SendCompleted, AddressOf SendCompletedCallback
+
+        SMTP.Host = "mailrelay.america.littelfuse.com"
+        SMTP.SendAsync(Email, Nothing)
+
+        Update_HourStatus = "True"
+        Update_Threehrs_Downtime_Stat()
+
 
     End Sub
 End Module
@@ -1842,6 +2139,27 @@ Module Function_Module
             End If
         End If
     End Sub
+
+    '***************************< Check Email Recipient >*****************************
+    Public Escalation_Level_Recipient As String
+
+    Sub Email_Escalation_Recipient()
+        If Check_One_For_Send = 1 And Check_Two_For_Send = 0 And Check_Three_For_Send = 0 Then
+            Escalation_Level_Recipient = Emails_Db & "; " & OneHr_Emails_Db
+
+        ElseIf Check_One_For_Send = 1 And Check_Two_For_Send = 1 And Check_Three_For_Send = 0 Then
+            Escalation_Level_Recipient = Emails_Db & "; " & OneHr_Emails_Db & "; " & TwoHr_Emails_Db
+
+        ElseIf Check_One_For_Send = 1 And Check_Two_For_Send = 1 And Check_Three_For_Send = 1 Then
+            Escalation_Level_Recipient = Emails_Db & "; " & OneHr_Emails_Db & "; " & TwoHr_Emails_Db & "; " & ThreeHr_Emails_Db
+
+        Else
+
+            Escalation_Level_Recipient = Emails_Db
+        End If
+
+        Console.WriteLine("Escalation Plan email: " & Escalation_Level_Recipient)
+    End Sub
 End Module
 
 Module Query_Module
@@ -1871,7 +2189,7 @@ Module Query_Module
             Dim adap As New OleDbDataAdapter
             ConOpen()
 
-            MyData = "SELECT * FROM Email_tb WHERE Categ = 'Emails'"
+            MyData = "SELECT * FROM Email_tb WHERE Categ = '30mins'"
             cmd.Connection = Dbconnection
             cmd.CommandText = MyData
             adap.SelectCommand = cmd
@@ -1893,22 +2211,35 @@ Module Query_Module
         End Try
     End Sub
 
-
     Sub Log_TimeReported()
         Dim mycommand As String
 
         Dim dateNtime As String = Date.Now.ToString("MMM/dd/yyyy hh:mm:ss tt")
+        Dim Line As String = IssueReport_Form.txtLine.Text
+        Dim Pro As String = IssueReport_Form.txtProcess.Text
+        Dim Issue As String = IssueReport_Form.cboIssue.Text
         Dim Line_Pro As String = IssueReport_Form.txtLine.Text & " " & IssueReport_Form.txtProcess.Text
         Dim Reporter As String = Biometric_Name
 
+        Dim Init As Integer = 0
+
         Try
             ConOpen()
-            mycommand = "INSERT INTO [IssueTimeTracker_tb] ([LineProcess],[Reported_by],[Reported_time]) 
-                                VALUES (@LP, @Repby, @Time)"
+            mycommand = "INSERT INTO [IssueTimeTracker_tb] ([LineProcess],[Reported_by],[Reported_time],[Line],[Process],[Issue],
+                         [One_Hour],[Two_Hours],[Three_Hours])
+                         VALUES (@LP, @Repby, @Time, @Lne, @Proc, @Iss, @One, @Two, @Three)"
             Using command As New OleDbCommand(mycommand, Dbconnection)
                 command.Parameters.AddWithValue("@LP", Line_Pro)
                 command.Parameters.AddWithValue("@Repby", Reporter)
                 command.Parameters.AddWithValue("@Time", dateNtime)
+
+                command.Parameters.AddWithValue("@Lne", Line)
+                command.Parameters.AddWithValue("@Proc", Pro)
+                command.Parameters.AddWithValue("@Iss", Issue)
+
+                command.Parameters.AddWithValue("@One", Init)
+                command.Parameters.AddWithValue("@Two", Init)
+                command.Parameters.AddWithValue("@Three", Init)
                 command.ExecuteNonQuery()
             End Using
             ConClose()
@@ -2026,6 +2357,344 @@ Module Query_Module
         End Try
     End Sub
 
+
+    '=================================< For Escalation Plan >=================================
+
+    Public OneHr_Emails_Db As String
+    Public TwoHr_Emails_Db As String
+    Public ThreeHr_Emails_Db As String
+
+    Sub Get_1hour_Emails()
+        Try
+            Dim MyData As String
+            Dim cmd As New OleDbCommand
+            Dim Data As New DataTable
+            Dim adap As New OleDbDataAdapter
+            ConOpen()
+
+            MyData = "SELECT * FROM Email_tb WHERE Categ = '1hour'"
+            cmd.Connection = Dbconnection
+            cmd.CommandText = MyData
+            adap.SelectCommand = cmd
+
+            adap.Fill(Data)
+
+            If Data.Rows.Count > 0 Then
+
+                OneHr_Emails_Db = Data.Rows(0).Item("List").ToString
+                Console.WriteLine(OneHr_Emails_Db)
+
+            Else
+                MsgBox("No emails listed!", MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, vbCritical)
+        Finally
+            'ConClose()
+        End Try
+    End Sub
+
+    Sub Get_2hours_Emails()
+        Try
+            Dim MyData As String
+            Dim cmd As New OleDbCommand
+            Dim Data As New DataTable
+            Dim adap As New OleDbDataAdapter
+            ConOpen()
+
+            MyData = "SELECT * FROM Email_tb WHERE Categ = '2hours'"
+            cmd.Connection = Dbconnection
+            cmd.CommandText = MyData
+            adap.SelectCommand = cmd
+
+            adap.Fill(Data)
+
+            If Data.Rows.Count > 0 Then
+
+                TwoHr_Emails_Db = Data.Rows(0).Item("List").ToString
+                Console.WriteLine(TwoHr_Emails_Db)
+
+            Else
+                MsgBox("No emails listed!", MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, vbCritical)
+        Finally
+            'ConClose()
+        End Try
+    End Sub
+
+    Sub Get_3hours_Emails()
+        Try
+            Dim MyData As String
+            Dim cmd As New OleDbCommand
+            Dim Data As New DataTable
+            Dim adap As New OleDbDataAdapter
+            ConOpen()
+
+            MyData = "SELECT * FROM Email_tb WHERE Categ = '3hours'"
+            cmd.Connection = Dbconnection
+            cmd.CommandText = MyData
+            adap.SelectCommand = cmd
+
+            adap.Fill(Data)
+
+            If Data.Rows.Count > 0 Then
+
+                ThreeHr_Emails_Db = Data.Rows(0).Item("List").ToString
+                Console.WriteLine(ThreeHr_Emails_Db)
+
+            Else
+                MsgBox("No emails listed!", MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, vbCritical)
+        Finally
+            'ConClose()
+        End Try
+    End Sub
+
+
+    Public Escalation_Line As String
+    Public Escalation_Process As String
+    Public Escalation_Issue As String
+    Public Escalation_ReportedBy As String
+    Public Escalation_Send_Done As Integer
+
+    Public Escalation_Line_Two As String
+    Public Escalation_Process_Two As String
+    Public Escalation_Issue_Two As String
+    Public Escalation_ReportedBy_Two As String
+    Public Escalation_Send_Done_Two As Integer
+
+    Public Escalation_Line_Three As String
+    Public Escalation_Process_Three As String
+    Public Escalation_Issue_Three As String
+    Public Escalation_ReportedBy_Three As String
+    Public Escalation_Send_Done_Three As Integer
+
+
+    Sub Check_1hour_Down()
+        Dim query As String = "SELECT Reported_by, Reported_time, Line, Process, Issue, One_Hour FROM IssueTimeTracker_tb"
+
+        Using cmd As New OleDbCommand(query, Dbconnection)
+            ConOpen()
+            Dim reader As OleDbDataReader = cmd.ExecuteReader()
+
+            While reader.Read()
+                Dim reportedTime As DateTime = Convert.ToDateTime(reader("Reported_time"))
+                Dim timeDifference As TimeSpan = DateTime.Now - reportedTime
+
+                If timeDifference.TotalMinutes > 59 AndAlso timeDifference.TotalMinutes < 119 Then
+                    Escalation_Line = reader("Line").ToString()
+                    Escalation_Process = reader("Process").ToString()
+                    Escalation_Issue = reader("Issue").ToString()
+                    Escalation_ReportedBy = reader("Reported_by").ToString()
+                    Escalation_Send_Done = reader("One_Hour")
+
+                    'Dim message As String = $"Error: Time difference is between 59 and 119 minutes.
+                    '                          Line: {Escalation_Line}
+                    '                          Process: {Escalation_Process}
+                    '                          Issue: {Escalation_Issue}
+                    '                          Report By: {Escalation_ReportedBy}"
+
+                    'MessageBox.Show(message, "Time Check", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    If Escalation_Send_Done = 0 Then
+                        Send_Issue_Email_OneHour()
+                        OneHour_Send_Done()
+                    End If
+                End If
+            End While
+        End Using
+        ConClose()
+    End Sub
+
+    Sub Check_2hour_Down()
+        Dim query As String = "SELECT Reported_by, Reported_time, Line, Process, Issue, Two_Hours FROM IssueTimeTracker_tb"
+
+        Using cmd As New OleDbCommand(query, Dbconnection)
+            ConOpen()
+            Dim reader As OleDbDataReader = cmd.ExecuteReader()
+
+            While reader.Read()
+                Dim reportedTime As DateTime = Convert.ToDateTime(reader("Reported_time"))
+                Dim timeDifference As TimeSpan = DateTime.Now - reportedTime
+
+                If timeDifference.TotalMinutes > 119 AndAlso timeDifference.TotalMinutes < 179 Then
+                    Escalation_Line_Two = reader("Line").ToString()
+                    Escalation_Process_Two = reader("Process").ToString()
+                    Escalation_Issue_Two = reader("Issue").ToString()
+                    Escalation_ReportedBy_Two = reader("Reported_by").ToString()
+                    Escalation_Send_Done_Two = reader("Two_Hours")
+
+                    'Dim message As String = $"Error: Time difference is between 59 and 119 minutes.
+                    '                          Line: {Escalation_Line_Two}
+                    '                          Process: {Escalation_Process_Two}
+                    '                          Issue: {Escalation_Issue_Two}
+                    '                          Report By: {Escalation_ReportedBy_Two}"
+
+                    'MessageBox.Show(message, "Time Check", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    If Escalation_Send_Done_Two = 0 Then
+                        Send_Issue_Email_TwoHours()
+                        TwoHours_Send_Done()
+                    End If
+                Else
+                    'Console.WriteLine("Error")
+                End If
+            End While
+        End Using
+        ConClose()
+    End Sub
+
+    Sub Check_3hour_Down()
+        Dim query As String = "SELECT Reported_by, Reported_time, Line, Process, Issue, Three_Hours FROM IssueTimeTracker_tb"
+
+        Using cmd As New OleDbCommand(query, Dbconnection)
+            ConOpen()
+            Dim reader As OleDbDataReader = cmd.ExecuteReader()
+
+            While reader.Read()
+                Dim reportedTime As DateTime = Convert.ToDateTime(reader("Reported_time"))
+                Dim timeDifference As TimeSpan = DateTime.Now - reportedTime
+
+                If timeDifference.TotalMinutes > 179 AndAlso timeDifference.TotalMinutes < 240 Then
+                    Escalation_Line_Three = reader("Line").ToString()
+                    Escalation_Process_Three = reader("Process").ToString()
+                    Escalation_Issue_Three = reader("Issue").ToString()
+                    Escalation_ReportedBy_Three = reader("Reported_by").ToString()
+                    Escalation_Send_Done_Three = reader("Three_Hours").ToString()
+
+                    'Dim message As String = $"Error: Time difference is between 59 and 119 minutes.
+                    '                          Line: {Escalation_Line_Three}
+                    '                          Process: {Escalation_Process_Three}
+                    '                          Issue: {Escalation_Issue_Three}
+                    '                          Report By: {Escalation_ReportedBy_Three}"
+
+                    'MessageBox.Show(message, "Time Check", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    If Escalation_Send_Done_Three = 0 Then
+                        Send_Issue_Email_ThreeHours()
+                        ThreeHours_Send_Done()
+                    End If
+                Else
+                        'Console.WriteLine("Error")
+                    End If
+
+            End While
+        End Using
+        ConClose()
+    End Sub
+
+
+    Sub OneHour_Send_Done()
+        Try
+            Dim Send As Integer = 1
+            Dim LinePro As String = Escalation_Line & " " & Escalation_Process
+            Dim query As String = "UPDATE IssueTimeTracker_tb 
+                                        SET One_Hour = @Send
+                                        WHERE LineProcess = @LP"
+
+            Using command As New OleDbCommand(query, Dbconnection)
+                command.Parameters.AddWithValue("@Send", Send)
+                command.Parameters.AddWithValue("@LP", LinePro)
+                ConOpen()
+                command.ExecuteNonQuery()
+                'ConClose()
+            End Using
+
+        Catch ex As Exception
+            MsgBox(ex.Message, vbCritical)
+        End Try
+    End Sub
+
+    Sub TwoHours_Send_Done()
+        Try
+            Dim Send As Integer = 1
+            Dim LinePro As String = Escalation_Line_Two & " " & Escalation_Process_Two
+            Dim query As String = "UPDATE IssueTimeTracker_tb 
+                                        SET Two_Hours = @Send
+                                        WHERE LineProcess = @LP"
+
+            Using command As New OleDbCommand(query, Dbconnection)
+                command.Parameters.AddWithValue("@Send", Send)
+                command.Parameters.AddWithValue("@LP", LinePro)
+                ConOpen()
+                command.ExecuteNonQuery()
+                'ConClose()
+            End Using
+
+        Catch ex As Exception
+            MsgBox(ex.Message, vbCritical)
+        End Try
+    End Sub
+
+    Sub ThreeHours_Send_Done()
+        Try
+            Dim Send As Integer = 1
+            Dim LinePro As String = Escalation_Line_Three & " " & Escalation_Process_Three
+            Dim query As String = "UPDATE IssueTimeTracker_tb 
+                                        SET Three_Hours = @Send
+                                        WHERE LineProcess = @LP"
+
+            Using command As New OleDbCommand(query, Dbconnection)
+                command.Parameters.AddWithValue("@Send", Send)
+                command.Parameters.AddWithValue("@LP", LinePro)
+                ConOpen()
+                command.ExecuteNonQuery()
+                'ConClose()
+            End Using
+
+        Catch ex As Exception
+            MsgBox(ex.Message, vbCritical)
+        End Try
+    End Sub
+
+    Public Check_One_For_Send As Integer
+    Public Check_Two_For_Send As Integer
+    Public Check_Three_For_Send As Integer
+
+    Sub Check_Whos_Recipient()
+
+        Get_Emails()
+        Get_1hour_Emails()
+        Get_2hours_Emails()
+        Get_3hours_Emails()
+
+        Try
+            Dim MyData As String
+            Dim cmd As New OleDbCommand
+            Dim Data As New DataTable
+            Dim adap As New OleDbDataAdapter
+            ConOpen()
+
+            MyData = "SELECT * FROM IssueTimeTracker_tb WHERE LineProcess = '" & Check_Line_For_Send & "'"
+            cmd.Connection = Dbconnection
+            cmd.CommandText = MyData
+            adap.SelectCommand = cmd
+
+            adap.Fill(Data)
+
+            If Data.Rows.Count > 0 Then
+
+                Check_One_For_Send = Data.Rows(0).Item("One_Hour")
+                Check_Two_For_Send = Data.Rows(0).Item("Two_Hours")
+                Check_Three_For_Send = Data.Rows(0).Item("Three_Hours")
+
+                Console.WriteLine("One Hour: " & Check_One_For_Send)
+                Console.WriteLine("Two Hours: " & Check_Two_For_Send)
+                Console.WriteLine("Three Hours: " & Check_Three_For_Send)
+
+                Email_Escalation_Recipient()
+
+            Else
+                'MsgBox("No emails listed!", MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, vbCritical)
+        Finally
+            ConClose()
+        End Try
+    End Sub
+
 End Module
 
 Module SQL_Server_Query_Module
@@ -2123,6 +2792,7 @@ End Module
 Module Saving_Module
     'I:\Dept_Pico\PICO Process Engineering\20. Sheila\Reference Tables for PowerBI Report\PICO Line 3 Downtime History\" & Year & "\" & Month & "\PICO Line 3 History.csv
     'C:\Backup\PICO Line 3 Downtime History\" & Year & "\" & Month & "\PICO Line 3 History.csv
+    '\\btfile001\data\Dept_Pico\PICO Downtime Alarm System\" & Year & "\" & Month & "\PICO Line 3 History.csv
     Public History As String
 
     Public Year As String = Date.Now.ToString("yyyy")
@@ -2170,8 +2840,8 @@ Module Saving_Module
 
         Dim dateNtime As String = Date.Now.ToString("MM/dd/yyyy hh:mmtt")
 
-        History = vbCrLf & """Line Process""" & "," & """Reported by""" & "," & """Reported Time""" & "," & """Resolved Time""" & "," & """Duration(hrs)""" & "," & """Cause""" & "," & """Person in Charge""" & vbCrLf
-        History = History & LinePro & "," & Rep_name & "," & Reported & "," & Resolved & "," & Totalhrs & "," & ResolvedReport_Form.txtCause.Text & "," & Biometric_Name & vbCrLf
+        History = """Line Process""" & "," & """Reported by""" & "," & """Reported Time""" & "," & """Resolved Time""" & "," & """Duration(hrs)""" & "," & """Cause""" & "," & """Action Taken""" & "," & """Person in Charge""" & vbCrLf
+        History = History & LinePro & "," & Rep_name & "," & Reported & "," & Resolved & "," & Totalhrs & "," & ResolvedReport_Form.txtCause.Text & "," & ResolvedReport_Form.txtNextStep.Text & "," & Biometric_Name & vbCrLf
 
         My.Computer.FileSystem.WriteAllText(FolderPath, History, True)
     End Sub
@@ -2183,7 +2853,7 @@ Module Saving_Module
         Dim dateNtime As String = Date.Now.ToString("MM/dd/yyyy hh:mmtt")
 
         'History = vbCrLf & """Line Process""" & "," & """Reported by""" & "," & """Reported Time""" & "," & """Resolved Time""" & "," & """Duration(hrs)""" & "," & """Cause""" & "," & """Person in Charge""" & vbCrLf
-        History = LinePro & "," & Rep_name & "," & Reported & "," & Resolved & "," & Totalhrs & "," & ResolvedReport_Form.txtCause.Text & "," & Biometric_Name & vbCrLf
+        History = LinePro & "," & Rep_name & "," & Reported & "," & Resolved & "," & Totalhrs & "," & ResolvedReport_Form.txtCause.Text & "," & ResolvedReport_Form.txtNextStep.Text & "," & Biometric_Name & vbCrLf
 
         My.Computer.FileSystem.WriteAllText(FolderPath, History, True)
     End Sub
