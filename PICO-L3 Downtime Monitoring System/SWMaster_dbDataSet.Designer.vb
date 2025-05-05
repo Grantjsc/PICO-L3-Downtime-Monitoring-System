@@ -896,7 +896,7 @@ Namespace SWMaster_dbDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.PICO_L3_Downtime_Monitoring_System.My.MySettings.Default.SWMaster_dbConnectionString
+            Me._connection.ConnectionString = Global.PICO_L3_DMS.My.MySettings.Default.SWMaster_dbConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

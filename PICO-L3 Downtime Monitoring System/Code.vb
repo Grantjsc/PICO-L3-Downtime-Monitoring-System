@@ -386,6 +386,117 @@ Module AppConfig_Module
 
         ConfigurationManager.RefreshSection("appSettings") 'refresh
     End Sub
+
+
+    '==================================< GET LINE 5 PROCESS STATUS >===========================
+
+    Public Line5_PreMelt_ErrorStat As Integer
+    Public Line5_CLI_ErrorStat As Integer
+    Public Line5_WireThreading_ErrorStat As Integer
+    Public Line5_1stHeat_ErrorStat As Integer
+    Public Line5_Sanding_ErrorStat As Integer
+    Public Line5_2ndHeat_ErrorStat As Integer
+    Public Line5_Assembly_ErrorStat As Integer
+
+    Sub Get_Line5_PreMelt_Status()
+        Dim LineProStatus As String = System.Configuration.ConfigurationManager.AppSettings("Line5_PreMelt_Stat")
+        Console.WriteLine(LineProStatus)
+
+        Line5_PreMelt_ErrorStat = LineProStatus
+    End Sub
+
+    Sub Get_Line5_CLI_Status()
+        Dim LineProStatus As String = System.Configuration.ConfigurationManager.AppSettings("Line5_CLI_Stat")
+        Console.WriteLine(LineProStatus)
+
+        Line5_CLI_ErrorStat = LineProStatus
+    End Sub
+
+    Sub Get_Line5_WireThreading_Status()
+        Dim LineProStatus As String = System.Configuration.ConfigurationManager.AppSettings("Line5_WireThreading_Stat")
+        Console.WriteLine(LineProStatus)
+
+        Line5_WireThreading_ErrorStat = LineProStatus
+    End Sub
+
+    Sub Get_Line5_1stHeat_Status()
+        Dim LineProStatus As String = System.Configuration.ConfigurationManager.AppSettings("Line5_1stHeat_Stat")
+        Console.WriteLine(LineProStatus)
+
+        Line5_1stHeat_ErrorStat = LineProStatus
+    End Sub
+
+    Sub Get_Line5_Sanding_Status()
+        Dim LineProStatus As String = System.Configuration.ConfigurationManager.AppSettings("Line5_Sanding_Stat")
+        Console.WriteLine(LineProStatus)
+
+        Line5_Sanding_ErrorStat = LineProStatus
+    End Sub
+
+    Sub Get_Line5_2ndHeat_Status()
+        Dim LineProStatus As String = System.Configuration.ConfigurationManager.AppSettings("Line5_2ndHeat_Stat")
+        Console.WriteLine(LineProStatus)
+
+        Line5_2ndHeat_ErrorStat = LineProStatus
+    End Sub
+
+    Sub Get_Line5_Assembly_Status()
+        Dim LineProStatus As String = System.Configuration.ConfigurationManager.AppSettings("Line5_Assembly_Stat")
+        Console.WriteLine(LineProStatus)
+
+        Line5_Assembly_ErrorStat = LineProStatus
+    End Sub
+
+    '==================================< UPDATE LINE 5 PROCESS STATUS >===========================
+    Sub Update_Line5_PreMelt_ErrorStat()
+        config.AppSettings.Settings("Line5_PreMelt_Stat").Value = Update_ProcessStatus ' Update 
+        config.Save(ConfigurationSaveMode.Modified) ' save the new value
+
+        ConfigurationManager.RefreshSection("appSettings") 'refresh
+    End Sub
+
+    Sub Update_Line5_CLI_ErrorStat()
+        config.AppSettings.Settings("Line5_CLI_Stat").Value = Update_ProcessStatus ' Update 
+        config.Save(ConfigurationSaveMode.Modified) ' save the new value
+
+        ConfigurationManager.RefreshSection("appSettings") 'refresh
+    End Sub
+
+    Sub Update_Line5_WireThreading_ErrorStat()
+        config.AppSettings.Settings("Line5_WireThreading_Stat").Value = Update_ProcessStatus ' Update 
+        config.Save(ConfigurationSaveMode.Modified) ' save the new value
+
+        ConfigurationManager.RefreshSection("appSettings") 'refresh
+    End Sub
+
+    Sub Update_Line5_1stHeat_ErrorStat()
+        config.AppSettings.Settings("Line5_1stHeat_Stat").Value = Update_ProcessStatus ' Update 
+        config.Save(ConfigurationSaveMode.Modified) ' save the new value
+
+        ConfigurationManager.RefreshSection("appSettings") 'refresh
+    End Sub
+
+    Sub Update_Line5_Sanding_ErrorStat()
+        config.AppSettings.Settings("Line5_Sanding_Stat").Value = Update_ProcessStatus ' Update 
+        config.Save(ConfigurationSaveMode.Modified) ' save the new value
+
+        ConfigurationManager.RefreshSection("appSettings") 'refresh
+    End Sub
+
+    Sub Update_Line5_2ndHeat_ErrorStat()
+        config.AppSettings.Settings("Line5_2ndHeat_Stat").Value = Update_ProcessStatus ' Update 
+        config.Save(ConfigurationSaveMode.Modified) ' save the new value
+
+        ConfigurationManager.RefreshSection("appSettings") 'refresh
+    End Sub
+
+    Sub Update_Line5_Assembly_ErrorStat()
+        config.AppSettings.Settings("Line5_Assembly_Stat").Value = Update_ProcessStatus ' Update 
+        config.Save(ConfigurationSaveMode.Modified) ' save the new value
+
+        ConfigurationManager.RefreshSection("appSettings") 'refresh
+    End Sub
+
 End Module
 
 Module SendEmail_Module
@@ -412,7 +523,7 @@ Module SendEmail_Module
         'add this at table style for simple table
         'border-collapse: collapse;
 
-        Email.From = New MailAddress("PICOLine3_Dowtime@littelfuse.com")
+        Email.From = New MailAddress("PICO_Dowtime@littelfuse.com")
         Email.Subject = "DOWNTIME ALERT: " & Line
         Email.Body = "<style>
                         td {
@@ -523,7 +634,7 @@ Module SendEmail_Module
         'add this at table style for simple table
         'border-collapse: collapse;
 
-        Email.From = New MailAddress("PICOLine3_Dowtime@littelfuse.com")
+        Email.From = New MailAddress("PICO_Dowtime@littelfuse.com")
         Email.Subject = "DOWNTIME ALERT: " & Line
         Email.Body = "<style>
                         td {
@@ -637,7 +748,7 @@ Module SendEmail_Module
         'add this at table style for simple table
         'border-collapse: collapse;
 
-        Email.From = New MailAddress("PICOLine3_Dowtime@littelfuse.com")
+        Email.From = New MailAddress("PICO_Dowtime@littelfuse.com")
         Email.Subject = "DOWNTIME ALERT: " & Line
         Email.Body = "<style>
                         td {
@@ -721,7 +832,7 @@ Module SendEmail_Module
         'add this at table style for simple table
         'border-collapse: collapse;
 
-        Email.From = New MailAddress("PICOLine3_Dowtime@littelfuse.com")
+        Email.From = New MailAddress("PICO_Dowtime@littelfuse.com")
         Email.Subject = "DOWNTIME ALERT: " & Line
         Email.Body = "<style>
                         td {
@@ -798,7 +909,7 @@ Module SendEmail_Module
         'add this at table style for simple table
         'border-collapse: collapse;
 
-        Email.From = New MailAddress("PICOLine3_Dowtime@littelfuse.com")
+        Email.From = New MailAddress("PICO_Dowtime@littelfuse.com")
         Email.Subject = "DOWNTIME ALERT: " & Line
         Email.Body = "<style>
                         td {
@@ -875,7 +986,7 @@ Module SendEmail_Module
         'add this at table style for simple table
         'border-collapse: collapse;
 
-        Email.From = New MailAddress("PICOLine3_Dowtime@littelfuse.com")
+        Email.From = New MailAddress("PICO_Dowtime@littelfuse.com")
         Email.Subject = "DOWNTIME ALERT: " & Line
         Email.Body = "<style>
                         td {
@@ -975,6 +1086,14 @@ Module Function_Module
         Get_3B_Turning_Status()
         Get_3B_2ndHeat_Status()
         Get_3B_Trimming_Status()
+
+        Get_Line5_PreMelt_Status()
+        Get_Line5_CLI_Status()
+        Get_Line5_WireThreading_Status()
+        Get_Line5_1stHeat_Status()
+        Get_Line5_Sanding_Status()
+        Get_Line5_2ndHeat_Status()
+        Get_Line5_Assembly_Status()
 
         Get_WC_L3_Status()
         Get_WC_L5_Status()
@@ -1211,6 +1330,79 @@ Module Function_Module
 
                 Log_TimeReported()
 
+
+                '==========================< FOR LINE 5 >==============================
+
+            Case "PICO Line 5 Pre-Melt"
+                Update_ProcessStatus = 1
+                Update_Line5_PreMelt_ErrorStat()
+
+                Form1.btnLine5_PreMelt.FillColor = Color.Salmon
+                Form1.btnLine5_PreMelt.FillColor2 = Color.Red
+                Form1.btnLine5_PreMelt.ForeColor = Color.White
+
+                Log_TimeReported()
+
+            Case "PICO Line 5 CLI"
+                Update_ProcessStatus = 1
+                Update_Line5_CLI_ErrorStat()
+
+                Form1.btnLine5_CLI.FillColor = Color.Salmon
+                Form1.btnLine5_CLI.FillColor2 = Color.Red
+                Form1.btnLine5_CLI.ForeColor = Color.White
+
+                Log_TimeReported()
+
+            Case "PICO Line 5 Wire Threading"
+                Update_ProcessStatus = 1
+                Update_Line5_WireThreading_ErrorStat()
+
+                Form1.btnLine5_WireThread.FillColor = Color.Salmon
+                Form1.btnLine5_WireThread.FillColor2 = Color.Red
+                Form1.btnLine5_WireThread.ForeColor = Color.White
+
+                Log_TimeReported()
+
+            Case "PICO Line 5 1st Heat"
+                Update_ProcessStatus = 1
+                Update_Line5_1stHeat_ErrorStat()
+
+                Form1.btnLine5_1stHeat.FillColor = Color.Salmon
+                Form1.btnLine5_1stHeat.FillColor2 = Color.Red
+                Form1.btnLine5_1stHeat.ForeColor = Color.White
+
+                Log_TimeReported()
+
+
+            Case "PICO Line 5 Sanding"
+                Update_ProcessStatus = 1
+                Update_Line5_Sanding_ErrorStat()
+
+                Form1.btnLine5_Sanding.FillColor = Color.Salmon
+                Form1.btnLine5_Sanding.FillColor2 = Color.Red
+                Form1.btnLine5_Sanding.ForeColor = Color.White
+
+                Log_TimeReported()
+
+            Case "PICO Line 5 2nd Heat"
+                Update_ProcessStatus = 1
+                Update_Line5_2ndHeat_ErrorStat()
+
+                Form1.btnLine5_2ndHeat.FillColor = Color.Salmon
+                Form1.btnLine5_2ndHeat.FillColor2 = Color.Red
+                Form1.btnLine5_2ndHeat.ForeColor = Color.White
+
+                Log_TimeReported()
+
+            Case "PICO Line 5 Assembly"
+                Update_ProcessStatus = 1
+                Update_Line5_Assembly_ErrorStat()
+
+                Form1.btnLine5_Assembly.FillColor = Color.Salmon
+                Form1.btnLine5_Assembly.FillColor2 = Color.Red
+                Form1.btnLine5_Assembly.ForeColor = Color.White
+
+                Log_TimeReported()
         End Select
 
 
@@ -1294,7 +1486,7 @@ Module Function_Module
                 Form1.btn3A_2ndHeat.FillColor2 = Color.LightGreen
                 Form1.btn3A_2ndHeat.ForeColor = Color.Black
 
-            Case "PICO Line 3A Trimming"
+            Case "PICO Line 3A Assembly"
                 'MsgBox("PICO Line 3A Trimming")
                 Update_ProcessStatus = 0
                 Update_Line3A_Trimming_ErrorStat()
@@ -1379,7 +1571,7 @@ Module Function_Module
                 Form1.btn3B_2ndHeat.FillColor2 = Color.LightGreen
                 Form1.btn3B_2ndHeat.ForeColor = Color.Black
 
-            Case "PICO Line 3B Trimming"
+            Case "PICO Line 3B Assembly"
                 'MsgBox("PICO Line 3B Trimming")
                 Update_ProcessStatus = 0
                 Update_Line3B_Trimming_ErrorStat()
@@ -1405,6 +1597,79 @@ Module Function_Module
                 Form1.btnWC_Line5.FillColor = Color.Green
                 Form1.btnWC_Line5.FillColor2 = Color.LightGreen
                 Form1.btnWC_Line5.ForeColor = Color.Black
+
+                '==========================< FOR LINE 5 >==============================
+
+            Case "PICO Line 5 Pre-Melt"
+                Update_ProcessStatus = 0
+                Update_Line5_PreMelt_ErrorStat()
+
+                Form1.btnLine5_PreMelt.FillColor = Color.Green
+                Form1.btnLine5_PreMelt.FillColor2 = Color.LightGreen
+                Form1.btnLine5_PreMelt.ForeColor = Color.Black
+
+
+
+            Case "PICO Line 5 CLI"
+                Update_ProcessStatus = 0
+                Update_Line5_CLI_ErrorStat()
+
+                Form1.btnLine5_CLI.FillColor = Color.Green
+                Form1.btnLine5_CLI.FillColor2 = Color.LightGreen
+                Form1.btnLine5_CLI.ForeColor = Color.Black
+
+
+
+            Case "PICO Line 5 Wire Threading"
+                Update_ProcessStatus = 0
+                Update_Line5_WireThreading_ErrorStat()
+
+                Form1.btnLine5_WireThread.FillColor = Color.Green
+                Form1.btnLine5_WireThread.FillColor2 = Color.LightGreen
+                Form1.btnLine5_WireThread.ForeColor = Color.Black
+
+
+
+            Case "PICO Line 5 1st Heat"
+                Update_ProcessStatus = 0
+                Update_Line5_1stHeat_ErrorStat()
+
+                Form1.btnLine5_1stHeat.FillColor = Color.Green
+                Form1.btnLine5_1stHeat.FillColor2 = Color.LightGreen
+                Form1.btnLine5_1stHeat.ForeColor = Color.Black
+
+
+
+
+            Case "PICO Line 5 Sanding"
+                Update_ProcessStatus = 0
+                Update_Line5_Sanding_ErrorStat()
+
+                Form1.btnLine5_Sanding.FillColor = Color.Green
+                Form1.btnLine5_Sanding.FillColor2 = Color.LightGreen
+                Form1.btnLine5_Sanding.ForeColor = Color.Black
+
+
+
+            Case "PICO Line 5 2nd Heat"
+                Update_ProcessStatus = 0
+                Update_Line5_2ndHeat_ErrorStat()
+
+                Form1.btnLine5_2ndHeat.FillColor = Color.Green
+                Form1.btnLine5_2ndHeat.FillColor2 = Color.LightGreen
+                Form1.btnLine5_2ndHeat.ForeColor = Color.Black
+
+
+
+            Case "PICO Line 5 Assembly"
+                Update_ProcessStatus = 0
+                Update_Line5_Assembly_ErrorStat()
+
+                Form1.btnLine5_Assembly.FillColor = Color.Green
+                Form1.btnLine5_Assembly.FillColor2 = Color.LightGreen
+                Form1.btnLine5_Assembly.ForeColor = Color.Black
+
+
 
         End Select
 
@@ -1433,7 +1698,14 @@ Module Function_Module
     (Line3B_2ndHeat_ErrorStat, Form1.btn3B_2ndHeat),
     (Line3B_Trimming_ErrorStat, Form1.btn3B_Trimming),
     (WheelCoater_L3_ErrorStat, Form1.btnWC_Line3), 'Starting here is for wheel coater
-    (WheelCoater_L5_ErrorStat, Form1.btnWC_Line5)
+    (WheelCoater_L5_ErrorStat, Form1.btnWC_Line5),
+     (Line5_PreMelt_ErrorStat, Form1.btnLine5_PreMelt), 'Starting here is for Line 5
+    (Line5_CLI_ErrorStat, Form1.btnLine5_CLI),
+     (Line5_WireThreading_ErrorStat, Form1.btnLine5_WireThread),
+    (Line5_1stHeat_ErrorStat, Form1.btnLine5_1stHeat),
+    (Line5_Sanding_ErrorStat, Form1.btnLine5_Sanding),
+    (Line5_2ndHeat_ErrorStat, Form1.btnLine5_2ndHeat),
+    (Line5_Assembly_ErrorStat, Form1.btnLine5_Assembly)
 }
 
         For Each mapping In errorMapping
@@ -1735,7 +2007,7 @@ Module Function_Module
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3A"
-                IssueReport_Form.txtProcess.Text = "Trimming"
+                IssueReport_Form.txtProcess.Text = "Assembly"
                 IssueReport_Form.ShowDialog()
 
                 Master_login.Close()
@@ -1752,7 +2024,7 @@ Module Function_Module
 
                 Master_login.Close()
                 ResolvedReport_Form.txtLine.Text = "PICO Line 3A"
-                ResolvedReport_Form.txtProcess.Text = "Trimming"
+                ResolvedReport_Form.txtProcess.Text = "Assembly"
                 ResolvedReport_Form.ShowDialog()
             Else
 
@@ -2043,7 +2315,7 @@ Module Function_Module
             Master_login.ShowDialog()
             If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
                 IssueReport_Form.txtLine.Text = "PICO Line 3B"
-                IssueReport_Form.txtProcess.Text = "Trimming"
+                IssueReport_Form.txtProcess.Text = "Assembly"
                 IssueReport_Form.ShowDialog()
 
                 Master_login.Close()
@@ -2060,7 +2332,7 @@ Module Function_Module
 
                 Master_login.Close()
                 ResolvedReport_Form.txtLine.Text = "PICO Line 3B"
-                ResolvedReport_Form.txtProcess.Text = "Trimming"
+                ResolvedReport_Form.txtProcess.Text = "Assembly"
                 ResolvedReport_Form.ShowDialog()
             Else
 
@@ -2131,6 +2403,247 @@ Module Function_Module
                 Master_login.Close()
                 ResolvedReport_Form.txtLine.Text = "PICO Line 5"
                 ResolvedReport_Form.txtProcess.Text = "Wheel Coater"
+                ResolvedReport_Form.ShowDialog()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+        End If
+    End Sub
+
+
+    '*************************** Reporting Code for Line 5 *****************************
+
+    Sub Line5_PreMelt_Clicked()
+        Get_Line5_PreMelt_Status()
+        If Line5_PreMelt_ErrorStat = 0 Then
+            Master_login.Label1.Text = "Please scan your finger."
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+                IssueReport_Form.txtLine.Text = "PICO Line 5"
+                IssueReport_Form.txtProcess.Text = "Pre-Melt"
+                IssueReport_Form.ShowDialog()
+
+                Master_login.Close()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+
+        Else
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+
+                Master_login.Close()
+                ResolvedReport_Form.txtLine.Text = "PICO Line 5"
+                ResolvedReport_Form.txtProcess.Text = "Pre-Melt"
+                ResolvedReport_Form.ShowDialog()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+        End If
+    End Sub
+
+    Sub Line5_CLI_Clicked()
+        Get_Line5_CLI_Status()
+        If Line5_CLI_ErrorStat = 0 Then
+            Master_login.Label1.Text = "Please scan your finger."
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+                IssueReport_Form.txtLine.Text = "PICO Line 5"
+                IssueReport_Form.txtProcess.Text = "CLI"
+                IssueReport_Form.ShowDialog()
+
+                Master_login.Close()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+
+        Else
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+
+                Master_login.Close()
+                ResolvedReport_Form.txtLine.Text = "PICO Line 5"
+                ResolvedReport_Form.txtProcess.Text = "CLI"
+                ResolvedReport_Form.ShowDialog()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+        End If
+    End Sub
+
+    Sub Line5_WireThreading_Clicked()
+        Get_Line5_WireThreading_Status()
+        If Line5_WireThreading_ErrorStat = 0 Then
+            Master_login.Label1.Text = "Please scan your finger."
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+                IssueReport_Form.txtLine.Text = "PICO Line 5"
+                IssueReport_Form.txtProcess.Text = "Wire Threading"
+                IssueReport_Form.ShowDialog()
+
+                Master_login.Close()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+
+        Else
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+
+                Master_login.Close()
+                ResolvedReport_Form.txtLine.Text = "PICO Line 5"
+                ResolvedReport_Form.txtProcess.Text = "Wire Threading"
+                ResolvedReport_Form.ShowDialog()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+        End If
+    End Sub
+
+    Sub Line5_1stHeat_Clicked()
+        Get_Line5_1stHeat_Status()
+        If Line5_1stHeat_ErrorStat = 0 Then
+            Master_login.Label1.Text = "Please scan your finger."
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+                IssueReport_Form.txtLine.Text = "PICO Line 5"
+                IssueReport_Form.txtProcess.Text = "1st Heat"
+                IssueReport_Form.ShowDialog()
+
+                Master_login.Close()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+
+        Else
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+
+                Master_login.Close()
+                ResolvedReport_Form.txtLine.Text = "PICO Line 5"
+                ResolvedReport_Form.txtProcess.Text = "1st Heat"
+                ResolvedReport_Form.ShowDialog()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+        End If
+    End Sub
+
+    Sub Line5_Sanding_Clicked()
+        Get_Line5_Sanding_Status()
+        If Line5_Sanding_ErrorStat = 0 Then
+            Master_login.Label1.Text = "Please scan your finger."
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+                IssueReport_Form.txtLine.Text = "PICO Line 5"
+                IssueReport_Form.txtProcess.Text = "Sanding"
+                IssueReport_Form.ShowDialog()
+
+                Master_login.Close()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+
+        Else
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+
+                Master_login.Close()
+                ResolvedReport_Form.txtLine.Text = "PICO Line 5"
+                ResolvedReport_Form.txtProcess.Text = "Sanding"
+                ResolvedReport_Form.ShowDialog()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+        End If
+    End Sub
+
+    Sub Line5_2ndHeat_Clicked()
+        Get_Line5_2ndHeat_Status()
+        If Line5_2ndHeat_ErrorStat = 0 Then
+            Master_login.Label1.Text = "Please scan your finger."
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+                IssueReport_Form.txtLine.Text = "PICO Line 5"
+                IssueReport_Form.txtProcess.Text = "2nd Heat"
+                IssueReport_Form.ShowDialog()
+
+                Master_login.Close()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+
+        Else
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+
+                Master_login.Close()
+                ResolvedReport_Form.txtLine.Text = "PICO Line 5"
+                ResolvedReport_Form.txtProcess.Text = "2nd Heat"
+                ResolvedReport_Form.ShowDialog()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+        End If
+    End Sub
+
+    Sub Line5_Assembly_Clicked()
+        Get_Line5_Assembly_Status()
+        If Line5_Assembly_ErrorStat = 0 Then
+            Master_login.Label1.Text = "Please scan your finger."
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "Operator" Or Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+                IssueReport_Form.txtLine.Text = "PICO Line 5"
+                IssueReport_Form.txtProcess.Text = "Assembly"
+                IssueReport_Form.ShowDialog()
+
+                Master_login.Close()
+            Else
+
+                MsgBox("Authorized personnel only!", MsgBoxStyle.Exclamation)
+                Master_login.Close()
+            End If
+
+        Else
+            Master_login.Label1.Text = "Please scan your finger. PO3, SPC or Technician only"
+            Master_login.ShowDialog()
+            If Master_login.F1_get_title = "PO3" Or Master_login.F1_get_title = "SPC" Or Master_login.F1_get_title = "Technician" Or Master_login.F1_get_title = "Engineer" Then
+
+                Master_login.Close()
+                ResolvedReport_Form.txtLine.Text = "PICO Line 5"
+                ResolvedReport_Form.txtProcess.Text = "Assembly"
                 ResolvedReport_Form.ShowDialog()
             Else
 
@@ -2798,7 +3311,7 @@ Module Saving_Module
     Public Year As String = Date.Now.ToString("yyyy")
     Public Month As String = Date.Now.ToString("MMMM")
     Public DateToday As String = Date.Now.ToString("dd")
-    Public FolderPath As String = "\\btfile001\data\Dept_Pico\PICO Downtime Alarm System\" & Year & "\" & Month & "\PICO Line 3 History.csv"
+    Public FolderPath As String '= "\\btfile001\data\Dept_Pico\PICO Downtime Alarm System\" & Year & "\" & Month & "\PICO Line 3 History.csv"
 
     Public Function IsCSVFileEmpty(filePath As String) As Boolean
         ' Check if the file exists
@@ -2815,6 +3328,18 @@ Module Saving_Module
 
     Sub CheckPath()
         Dim dateNtime As String = Date.Now.ToString("MM-dd-yy HH_mm")
+
+        Select Case ResolvedReport_Form.txtLine.Text
+            Case "PICO Line 3A"
+                FolderPath = "\\btfile001\data\Dept_Pico\PICO Downtime Alarm System\" & Year & "\" & Month & "\PICO Line 3 History.csv"
+
+            Case "PICO Line 3B"
+                FolderPath = "\\btfile001\data\Dept_Pico\PICO Downtime Alarm System\" & Year & "\" & Month & "\PICO Line 3 History.csv"
+
+            Case "PICO Line 5"
+                FolderPath = "\\btfile001\data\Dept_Pico\PICO Downtime Alarm System\" & Year & "\" & Month & "\PICO Line 5 History.csv"
+
+        End Select
 
         Try
 
@@ -2840,8 +3365,8 @@ Module Saving_Module
 
         Dim dateNtime As String = Date.Now.ToString("MM/dd/yyyy hh:mmtt")
 
-        History = """Line Process""" & "," & """Reported by""" & "," & """Reported Time""" & "," & """Resolved Time""" & "," & """Duration(hrs)""" & "," & """Cause""" & "," & """Action Taken""" & "," & """Person in Charge""" & vbCrLf
-        History = History & LinePro & "," & Rep_name & "," & Reported & "," & Resolved & "," & Totalhrs & "," & ResolvedReport_Form.txtCause.Text & "," & ResolvedReport_Form.txtNextStep.Text & "," & Biometric_Name & vbCrLf
+        History = """Line""" & "," & """Process""" & "," & """Reported by""" & "," & """Reported Time""" & "," & """Resolved Time""" & "," & """Duration(hrs)""" & "," & """Cause""" & "," & """Action Taken""" & "," & """Person in Charge""" & vbCrLf
+        History = History & ResolvedReport_Form.txtLine.Text & "," & ResolvedReport_Form.txtProcess.Text & "," & Rep_name & "," & Reported & "," & Resolved & "," & Totalhrs & "," & ResolvedReport_Form.txtCause.Text & "," & ResolvedReport_Form.txtNextStep.Text & "," & Biometric_Name & vbCrLf
 
         My.Computer.FileSystem.WriteAllText(FolderPath, History, True)
     End Sub
@@ -2853,7 +3378,7 @@ Module Saving_Module
         Dim dateNtime As String = Date.Now.ToString("MM/dd/yyyy hh:mmtt")
 
         'History = vbCrLf & """Line Process""" & "," & """Reported by""" & "," & """Reported Time""" & "," & """Resolved Time""" & "," & """Duration(hrs)""" & "," & """Cause""" & "," & """Person in Charge""" & vbCrLf
-        History = LinePro & "," & Rep_name & "," & Reported & "," & Resolved & "," & Totalhrs & "," & ResolvedReport_Form.txtCause.Text & "," & ResolvedReport_Form.txtNextStep.Text & "," & Biometric_Name & vbCrLf
+        History = ResolvedReport_Form.txtLine.Text & "," & ResolvedReport_Form.txtProcess.Text & "," & Rep_name & "," & Reported & "," & Resolved & "," & Totalhrs & "," & ResolvedReport_Form.txtCause.Text & "," & ResolvedReport_Form.txtNextStep.Text & "," & Biometric_Name & vbCrLf
 
         My.Computer.FileSystem.WriteAllText(FolderPath, History, True)
     End Sub

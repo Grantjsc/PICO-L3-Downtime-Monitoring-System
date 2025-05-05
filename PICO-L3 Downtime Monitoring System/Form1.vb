@@ -208,4 +208,34 @@
     Private Sub Timer3hours_Tick(sender As Object, e As EventArgs) Handles Timer3hours.Tick
         Check_3hour_Down()
     End Sub
+
+
+    '******************** PICO LINE 5 *************************
+    Private Sub btnLine5_CLI_Click(sender As Object, e As EventArgs) Handles btnLine5_CLI.Click
+        Line5_CLI_Clicked()
+    End Sub
+
+    Private Sub btnLine5_PreMelt_Click(sender As Object, e As EventArgs) Handles btnLine5_PreMelt.Click
+        Line5_PreMelt_Clicked()
+    End Sub
+
+    Private Sub btnLine5_WireThread_Click(sender As Object, e As EventArgs) Handles btnLine5_WireThread.Click
+        Line5_WireThreading_Clicked()
+    End Sub
+
+    Private Sub btnLine5_1stHeat_Click(sender As Object, e As EventArgs) Handles btnLine5_1stHeat.Click
+        Line5_1stHeat_Clicked()
+    End Sub
+
+    Private Sub btnLine5_Sanding_Click(sender As Object, e As EventArgs) Handles btnLine5_Sanding.Click
+        Line5_Sanding_Clicked()
+    End Sub
+
+    Private Sub btnLine5_2ndHeat_Click(sender As Object, e As EventArgs) Handles btnLine5_2ndHeat.Click
+        Line5_2ndHeat_Clicked()
+    End Sub
+
+    Private Sub btnLine5_Assembly_Click(sender As Object, e As EventArgs) Handles btnLine5_Assembly.Click
+        Line5_Assembly_Clicked()
+    End Sub
 End Class

@@ -64,7 +64,7 @@ Partial Class Add_Form
         '
         Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = Global.PICO_L3_Downtime_Monitoring_System.My.Resources.Resources.fingerprint_BLACK_
+        Me.PictureBox1.Image = Global.PICO_L3_DMS.My.Resources.Resources.fingerprint_BLACK_
         Me.PictureBox1.Location = New System.Drawing.Point(23, 65)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"

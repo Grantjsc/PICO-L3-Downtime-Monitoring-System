@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="PICO_Downtime_Monitoring_SystemConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PICO_Downtime_Monitoring_SystemConnectionString (MySettings)" PropertyReference="ApplicationSettings.PICO_L3_Downtime_Monitoring_System.My.MySettings.GlobalReference.Default.PICO_Downtime_Monitoring_SystemConnectionString" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="PICO_Downtime_Monitoring_SystemConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PICO_Downtime_Monitoring_SystemConnectionString (MySettings)" PropertyReference="ApplicationSettings.PICO_L3_DMS.My.MySettings.GlobalReference.Default.PICO_Downtime_Monitoring_SystemConnectionString" Provider="System.Data.OleDb" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Email_tbTableAdapter" GeneratorDataComponentClassName="Email_tbTableAdapter" Name="Email_tb" UserDataComponentName="Email_tbTableAdapter">
@@ -61,21 +61,21 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="PICO_Downtime_Monitoring_SystemDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="PICO_Downtime_Monitoring_SystemDataSet" msprop:Generator_DataSetName="PICO_Downtime_Monitoring_SystemDataSet">
+  <xs:element name="PICO_Downtime_Monitoring_SystemDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="PICO_Downtime_Monitoring_SystemDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="PICO_Downtime_Monitoring_SystemDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Email_tb" msprop:Generator_RowEvHandlerName="Email_tbRowChangeEventHandler" msprop:Generator_RowDeletedName="Email_tbRowDeleted" msprop:Generator_RowDeletingName="Email_tbRowDeleting" msprop:Generator_RowEvArgName="Email_tbRowChangeEvent" msprop:Generator_TablePropName="Email_tb" msprop:Generator_RowChangedName="Email_tbRowChanged" msprop:Generator_RowChangingName="Email_tbRowChanging" msprop:Generator_TableClassName="Email_tbDataTable" msprop:Generator_RowClassName="Email_tbRow" msprop:Generator_TableVarName="tableEmail_tb" msprop:Generator_UserTableName="Email_tb">
+        <xs:element name="Email_tb" msprop:Generator_RowClassName="Email_tbRow" msprop:Generator_RowEvHandlerName="Email_tbRowChangeEventHandler" msprop:Generator_RowDeletedName="Email_tbRowDeleted" msprop:Generator_RowDeletingName="Email_tbRowDeleting" msprop:Generator_RowEvArgName="Email_tbRowChangeEvent" msprop:Generator_TablePropName="Email_tb" msprop:Generator_RowChangedName="Email_tbRowChanged" msprop:Generator_UserTableName="Email_tb" msprop:Generator_RowChangingName="Email_tbRowChanging" msprop:Generator_TableClassName="Email_tbDataTable" msprop:Generator_TableVarName="tableEmail_tb">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="Categ" msprop:Generator_ColumnPropNameInRow="Categ" msprop:Generator_ColumnPropNameInTable="CategColumn" msprop:Generator_ColumnVarNameInTable="columnCateg" msprop:Generator_UserColumnName="Categ" minOccurs="0">
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="Categ" msprop:Generator_UserColumnName="Categ" msprop:Generator_ColumnPropNameInTable="CategColumn" msprop:Generator_ColumnPropNameInRow="Categ" msprop:Generator_ColumnVarNameInTable="columnCateg" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="List" msprop:Generator_ColumnPropNameInRow="List" msprop:Generator_ColumnPropNameInTable="ListColumn" msprop:Generator_ColumnVarNameInTable="columnList" msprop:Generator_UserColumnName="List" minOccurs="0">
+              <xs:element name="List" msprop:Generator_UserColumnName="List" msprop:Generator_ColumnPropNameInTable="ListColumn" msprop:Generator_ColumnPropNameInRow="List" msprop:Generator_ColumnVarNameInTable="columnList" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="536870910" />

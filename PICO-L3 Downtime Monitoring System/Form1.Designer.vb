@@ -42,6 +42,14 @@ Partial Class Form1
         Me.lblfooter1 = New System.Windows.Forms.Label()
         Me.lblfooter2 = New System.Windows.Forms.Label()
         Me.PanelMaster = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2GroupBox4 = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.btnLine5_Assembly = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.btnLine5_2ndHeat = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.btnLine5_WireThread = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.btnLine5_Sanding = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.btnLine5_CLI = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.btnLine5_1stHeat = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.btnLine5_PreMelt = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.Guna2GroupBox3 = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.btnWC_Line5 = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnWC_Line3 = New Guna.UI2.WinForms.Guna2GradientButton()
@@ -60,10 +68,12 @@ Partial Class Form1
         Me.Timer1hour = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2hours = New System.Windows.Forms.Timer(Me.components)
         Me.Timer3hours = New System.Windows.Forms.Timer(Me.components)
+        Me.Guna2GradientButton2 = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.Guna2CustomGradientPanel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.PanelMaster.SuspendLayout()
+        Me.Guna2GroupBox4.SuspendLayout()
         Me.Guna2GroupBox3.SuspendLayout()
         Me.Guna2GroupBox2.SuspendLayout()
         Me.Guna2ContextMenuStrip1.SuspendLayout()
@@ -182,7 +192,7 @@ Partial Class Form1
         Me.btn3A_Trimming.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
         Me.btn3A_Trimming.Size = New System.Drawing.Size(162, 55)
         Me.btn3A_Trimming.TabIndex = 9
-        Me.btn3A_Trimming.Text = "TRIMMING"
+        Me.btn3A_Trimming.Text = "ASSEMBLY"
         '
         'btn3A_2ndHeat
         '
@@ -407,6 +417,7 @@ Partial Class Form1
         'PanelMaster
         '
         Me.PanelMaster.BackColor = System.Drawing.SystemColors.Control
+        Me.PanelMaster.Controls.Add(Me.Guna2GroupBox4)
         Me.PanelMaster.Controls.Add(Me.Guna2GroupBox3)
         Me.PanelMaster.Controls.Add(Me.Guna2GroupBox2)
         Me.PanelMaster.Controls.Add(Me.lblfooter2)
@@ -417,6 +428,202 @@ Partial Class Form1
         Me.PanelMaster.Name = "PanelMaster"
         Me.PanelMaster.Size = New System.Drawing.Size(853, 824)
         Me.PanelMaster.TabIndex = 2
+        '
+        'Guna2GroupBox4
+        '
+        Me.Guna2GroupBox4.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2GroupBox4.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.Guna2GroupBox4.BorderRadius = 15
+        Me.Guna2GroupBox4.BorderThickness = 4
+        Me.Guna2GroupBox4.Controls.Add(Me.btnLine5_Assembly)
+        Me.Guna2GroupBox4.Controls.Add(Me.btnLine5_2ndHeat)
+        Me.Guna2GroupBox4.Controls.Add(Me.btnLine5_WireThread)
+        Me.Guna2GroupBox4.Controls.Add(Me.btnLine5_Sanding)
+        Me.Guna2GroupBox4.Controls.Add(Me.btnLine5_CLI)
+        Me.Guna2GroupBox4.Controls.Add(Me.btnLine5_1stHeat)
+        Me.Guna2GroupBox4.Controls.Add(Me.btnLine5_PreMelt)
+        Me.Guna2GroupBox4.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.Guna2GroupBox4.FillColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.Guna2GroupBox4.Font = New System.Drawing.Font("Segoe UI Black", 20.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2GroupBox4.ForeColor = System.Drawing.Color.Black
+        Me.Guna2GroupBox4.Location = New System.Drawing.Point(602, 29)
+        Me.Guna2GroupBox4.Name = "Guna2GroupBox4"
+        Me.Guna2GroupBox4.ShadowDecoration.BorderRadius = 15
+        Me.Guna2GroupBox4.ShadowDecoration.Color = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Guna2GroupBox4.ShadowDecoration.Enabled = True
+        Me.Guna2GroupBox4.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(12)
+        Me.Guna2GroupBox4.Size = New System.Drawing.Size(219, 751)
+        Me.Guna2GroupBox4.TabIndex = 126
+        Me.Guna2GroupBox4.Text = "Line 5"
+        Me.Guna2GroupBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'btnLine5_Assembly
+        '
+        Me.btnLine5_Assembly.BackColor = System.Drawing.Color.Transparent
+        Me.btnLine5_Assembly.BorderColor = System.Drawing.Color.FromArgb(CType(CType(72, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnLine5_Assembly.BorderRadius = 10
+        Me.btnLine5_Assembly.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnLine5_Assembly.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnLine5_Assembly.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnLine5_Assembly.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnLine5_Assembly.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnLine5_Assembly.FillColor = System.Drawing.Color.Green
+        Me.btnLine5_Assembly.FillColor2 = System.Drawing.Color.LightGreen
+        Me.btnLine5_Assembly.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLine5_Assembly.ForeColor = System.Drawing.Color.Black
+        Me.btnLine5_Assembly.Location = New System.Drawing.Point(32, 509)
+        Me.btnLine5_Assembly.Name = "btnLine5_Assembly"
+        Me.btnLine5_Assembly.ShadowDecoration.BorderRadius = 10
+        Me.btnLine5_Assembly.ShadowDecoration.Depth = 17
+        Me.btnLine5_Assembly.ShadowDecoration.Enabled = True
+        Me.btnLine5_Assembly.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
+        Me.btnLine5_Assembly.Size = New System.Drawing.Size(162, 55)
+        Me.btnLine5_Assembly.TabIndex = 10
+        Me.btnLine5_Assembly.Text = "ASSEMBLY"
+        '
+        'btnLine5_2ndHeat
+        '
+        Me.btnLine5_2ndHeat.BackColor = System.Drawing.Color.Transparent
+        Me.btnLine5_2ndHeat.BorderColor = System.Drawing.Color.FromArgb(CType(CType(72, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnLine5_2ndHeat.BorderRadius = 10
+        Me.btnLine5_2ndHeat.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnLine5_2ndHeat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnLine5_2ndHeat.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnLine5_2ndHeat.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnLine5_2ndHeat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnLine5_2ndHeat.FillColor = System.Drawing.Color.Green
+        Me.btnLine5_2ndHeat.FillColor2 = System.Drawing.Color.LightGreen
+        Me.btnLine5_2ndHeat.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLine5_2ndHeat.ForeColor = System.Drawing.Color.Black
+        Me.btnLine5_2ndHeat.Location = New System.Drawing.Point(32, 432)
+        Me.btnLine5_2ndHeat.Name = "btnLine5_2ndHeat"
+        Me.btnLine5_2ndHeat.ShadowDecoration.BorderRadius = 10
+        Me.btnLine5_2ndHeat.ShadowDecoration.Depth = 17
+        Me.btnLine5_2ndHeat.ShadowDecoration.Enabled = True
+        Me.btnLine5_2ndHeat.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
+        Me.btnLine5_2ndHeat.Size = New System.Drawing.Size(162, 55)
+        Me.btnLine5_2ndHeat.TabIndex = 12
+        Me.btnLine5_2ndHeat.Text = "2ND HEAT"
+        '
+        'btnLine5_WireThread
+        '
+        Me.btnLine5_WireThread.BackColor = System.Drawing.Color.Transparent
+        Me.btnLine5_WireThread.BorderColor = System.Drawing.Color.FromArgb(CType(CType(72, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnLine5_WireThread.BorderRadius = 10
+        Me.btnLine5_WireThread.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnLine5_WireThread.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnLine5_WireThread.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnLine5_WireThread.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnLine5_WireThread.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnLine5_WireThread.FillColor = System.Drawing.Color.Green
+        Me.btnLine5_WireThread.FillColor2 = System.Drawing.Color.LightGreen
+        Me.btnLine5_WireThread.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLine5_WireThread.ForeColor = System.Drawing.Color.Black
+        Me.btnLine5_WireThread.Location = New System.Drawing.Point(32, 201)
+        Me.btnLine5_WireThread.Name = "btnLine5_WireThread"
+        Me.btnLine5_WireThread.ShadowDecoration.BorderRadius = 10
+        Me.btnLine5_WireThread.ShadowDecoration.Depth = 17
+        Me.btnLine5_WireThread.ShadowDecoration.Enabled = True
+        Me.btnLine5_WireThread.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
+        Me.btnLine5_WireThread.Size = New System.Drawing.Size(162, 55)
+        Me.btnLine5_WireThread.TabIndex = 10
+        Me.btnLine5_WireThread.Text = "WIRE THREADING"
+        '
+        'btnLine5_Sanding
+        '
+        Me.btnLine5_Sanding.BackColor = System.Drawing.Color.Transparent
+        Me.btnLine5_Sanding.BorderColor = System.Drawing.Color.FromArgb(CType(CType(72, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnLine5_Sanding.BorderRadius = 10
+        Me.btnLine5_Sanding.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnLine5_Sanding.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnLine5_Sanding.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnLine5_Sanding.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnLine5_Sanding.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnLine5_Sanding.FillColor = System.Drawing.Color.Green
+        Me.btnLine5_Sanding.FillColor2 = System.Drawing.Color.LightGreen
+        Me.btnLine5_Sanding.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLine5_Sanding.ForeColor = System.Drawing.Color.Black
+        Me.btnLine5_Sanding.Location = New System.Drawing.Point(32, 355)
+        Me.btnLine5_Sanding.Name = "btnLine5_Sanding"
+        Me.btnLine5_Sanding.ShadowDecoration.BorderRadius = 10
+        Me.btnLine5_Sanding.ShadowDecoration.Depth = 17
+        Me.btnLine5_Sanding.ShadowDecoration.Enabled = True
+        Me.btnLine5_Sanding.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
+        Me.btnLine5_Sanding.Size = New System.Drawing.Size(162, 55)
+        Me.btnLine5_Sanding.TabIndex = 11
+        Me.btnLine5_Sanding.Text = "SANDING"
+        '
+        'btnLine5_CLI
+        '
+        Me.btnLine5_CLI.BackColor = System.Drawing.Color.Transparent
+        Me.btnLine5_CLI.BorderColor = System.Drawing.Color.FromArgb(CType(CType(72, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnLine5_CLI.BorderRadius = 10
+        Me.btnLine5_CLI.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnLine5_CLI.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnLine5_CLI.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnLine5_CLI.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnLine5_CLI.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnLine5_CLI.FillColor = System.Drawing.Color.Green
+        Me.btnLine5_CLI.FillColor2 = System.Drawing.Color.LightGreen
+        Me.btnLine5_CLI.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLine5_CLI.ForeColor = System.Drawing.Color.Black
+        Me.btnLine5_CLI.Location = New System.Drawing.Point(32, 47)
+        Me.btnLine5_CLI.Name = "btnLine5_CLI"
+        Me.btnLine5_CLI.ShadowDecoration.BorderRadius = 10
+        Me.btnLine5_CLI.ShadowDecoration.Depth = 17
+        Me.btnLine5_CLI.ShadowDecoration.Enabled = True
+        Me.btnLine5_CLI.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
+        Me.btnLine5_CLI.Size = New System.Drawing.Size(162, 55)
+        Me.btnLine5_CLI.TabIndex = 11
+        Me.btnLine5_CLI.Text = "CLI"
+        '
+        'btnLine5_1stHeat
+        '
+        Me.btnLine5_1stHeat.BackColor = System.Drawing.Color.Transparent
+        Me.btnLine5_1stHeat.BorderColor = System.Drawing.Color.FromArgb(CType(CType(72, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnLine5_1stHeat.BorderRadius = 10
+        Me.btnLine5_1stHeat.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnLine5_1stHeat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnLine5_1stHeat.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnLine5_1stHeat.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnLine5_1stHeat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnLine5_1stHeat.FillColor = System.Drawing.Color.Green
+        Me.btnLine5_1stHeat.FillColor2 = System.Drawing.Color.LightGreen
+        Me.btnLine5_1stHeat.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLine5_1stHeat.ForeColor = System.Drawing.Color.Black
+        Me.btnLine5_1stHeat.Location = New System.Drawing.Point(32, 278)
+        Me.btnLine5_1stHeat.Name = "btnLine5_1stHeat"
+        Me.btnLine5_1stHeat.ShadowDecoration.BorderRadius = 10
+        Me.btnLine5_1stHeat.ShadowDecoration.Depth = 17
+        Me.btnLine5_1stHeat.ShadowDecoration.Enabled = True
+        Me.btnLine5_1stHeat.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
+        Me.btnLine5_1stHeat.Size = New System.Drawing.Size(162, 55)
+        Me.btnLine5_1stHeat.TabIndex = 10
+        Me.btnLine5_1stHeat.Text = "1ST HEAT"
+        '
+        'btnLine5_PreMelt
+        '
+        Me.btnLine5_PreMelt.BackColor = System.Drawing.Color.Transparent
+        Me.btnLine5_PreMelt.BorderColor = System.Drawing.Color.FromArgb(CType(CType(72, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnLine5_PreMelt.BorderRadius = 10
+        Me.btnLine5_PreMelt.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnLine5_PreMelt.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnLine5_PreMelt.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnLine5_PreMelt.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnLine5_PreMelt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnLine5_PreMelt.FillColor = System.Drawing.Color.Green
+        Me.btnLine5_PreMelt.FillColor2 = System.Drawing.Color.LightGreen
+        Me.btnLine5_PreMelt.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLine5_PreMelt.ForeColor = System.Drawing.Color.Black
+        Me.btnLine5_PreMelt.Location = New System.Drawing.Point(32, 124)
+        Me.btnLine5_PreMelt.Name = "btnLine5_PreMelt"
+        Me.btnLine5_PreMelt.ShadowDecoration.BorderRadius = 10
+        Me.btnLine5_PreMelt.ShadowDecoration.Depth = 17
+        Me.btnLine5_PreMelt.ShadowDecoration.Enabled = True
+        Me.btnLine5_PreMelt.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
+        Me.btnLine5_PreMelt.Size = New System.Drawing.Size(162, 55)
+        Me.btnLine5_PreMelt.TabIndex = 10
+        Me.btnLine5_PreMelt.Text = "PRE-MELT"
         '
         'Guna2GroupBox3
         '
@@ -430,7 +637,7 @@ Partial Class Form1
         Me.Guna2GroupBox3.FillColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(72, Byte), Integer))
         Me.Guna2GroupBox3.Font = New System.Drawing.Font("Segoe UI Black", 20.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2GroupBox3.ForeColor = System.Drawing.Color.Black
-        Me.Guna2GroupBox3.Location = New System.Drawing.Point(602, 29)
+        Me.Guna2GroupBox3.Location = New System.Drawing.Point(837, 19)
         Me.Guna2GroupBox3.Name = "Guna2GroupBox3"
         Me.Guna2GroupBox3.ShadowDecoration.BorderRadius = 15
         Me.Guna2GroupBox3.ShadowDecoration.Color = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(89, Byte), Integer))
@@ -440,6 +647,7 @@ Partial Class Form1
         Me.Guna2GroupBox3.TabIndex = 11
         Me.Guna2GroupBox3.Text = "Wheel Coater"
         Me.Guna2GroupBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.Guna2GroupBox3.Visible = False
         '
         'btnWC_Line5
         '
@@ -541,7 +749,7 @@ Partial Class Form1
         Me.btn3B_Trimming.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
         Me.btn3B_Trimming.Size = New System.Drawing.Size(162, 55)
         Me.btn3B_Trimming.TabIndex = 9
-        Me.btn3B_Trimming.Text = "TRIMMING"
+        Me.btn3B_Trimming.Text = "ASSEMBLY"
         '
         'btn3B_2ndHeat
         '
@@ -768,6 +976,30 @@ Partial Class Form1
         '
         Me.Timer3hours.Interval = 1020000
         '
+        'Guna2GradientButton2
+        '
+        Me.Guna2GradientButton2.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2GradientButton2.BorderColor = System.Drawing.Color.FromArgb(CType(CType(72, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.Guna2GradientButton2.BorderRadius = 10
+        Me.Guna2GradientButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2GradientButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2GradientButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2GradientButton2.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2GradientButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2GradientButton2.FillColor = System.Drawing.Color.Green
+        Me.Guna2GradientButton2.FillColor2 = System.Drawing.Color.LightGreen
+        Me.Guna2GradientButton2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2GradientButton2.ForeColor = System.Drawing.Color.Black
+        Me.Guna2GradientButton2.Location = New System.Drawing.Point(32, 124)
+        Me.Guna2GradientButton2.Name = "Guna2GradientButton2"
+        Me.Guna2GradientButton2.ShadowDecoration.BorderRadius = 10
+        Me.Guna2GradientButton2.ShadowDecoration.Depth = 17
+        Me.Guna2GradientButton2.ShadowDecoration.Enabled = True
+        Me.Guna2GradientButton2.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(0, 0, 10, 10)
+        Me.Guna2GradientButton2.Size = New System.Drawing.Size(162, 55)
+        Me.Guna2GradientButton2.TabIndex = 10
+        Me.Guna2GradientButton2.Text = "PRE-MELT"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -778,6 +1010,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Guna2CustomGradientPanel1)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Form1"
@@ -788,6 +1021,7 @@ Partial Class Form1
         Me.Guna2GroupBox1.ResumeLayout(False)
         Me.PanelMaster.ResumeLayout(False)
         Me.PanelMaster.PerformLayout()
+        Me.Guna2GroupBox4.ResumeLayout(False)
         Me.Guna2GroupBox3.ResumeLayout(False)
         Me.Guna2GroupBox2.ResumeLayout(False)
         Me.Guna2ContextMenuStrip1.ResumeLayout(False)
@@ -831,4 +1065,13 @@ Partial Class Form1
     Friend WithEvents Timer1hour As Timer
     Friend WithEvents Timer2hours As Timer
     Friend WithEvents Timer3hours As Timer
+    Friend WithEvents Guna2GroupBox4 As Guna.UI2.WinForms.Guna2GroupBox
+    Friend WithEvents btnLine5_Assembly As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents btnLine5_2ndHeat As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents btnLine5_WireThread As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents btnLine5_Sanding As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents btnLine5_CLI As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents btnLine5_1stHeat As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents btnLine5_PreMelt As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents Guna2GradientButton2 As Guna.UI2.WinForms.Guna2GradientButton
 End Class
