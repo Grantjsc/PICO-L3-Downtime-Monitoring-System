@@ -28,7 +28,7 @@
     <ProductName>PICO L3 Downtime Alarm System</ProductName>
     <PublisherName>Littelfuse Philippines %28TSG%29 - GCatapang</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
-    <ApplicationRevision>19</ApplicationRevision>
+    <ApplicationRevision>20</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

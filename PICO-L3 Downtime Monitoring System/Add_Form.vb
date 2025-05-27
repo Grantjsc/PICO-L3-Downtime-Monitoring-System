@@ -2,6 +2,8 @@
 Imports System.IO
 Imports DPFP
 Imports DPFP.Capture
+Imports System.Data.SqlClient
+
 Public Class Add_Form
     Implements DPFP.Capture.EventHandler
     Private Capturer As DPFP.Capture.Capture
@@ -46,15 +48,18 @@ Public Class Add_Form
     Public F4_get_user As String
     Public F4_get_pass As String
     Public F4_get_title As String
+
+    'Data Source=BTMESSQLDEV03;Initial Catalog=TSG_ProjectMonitoringSystem;Persist Security Info=True;User ID=mesph;Password=PHFuse;TrustServerCertificate=True
+    'Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\LF Database\SWMaster_db.accdb;Jet OLEDB:Database Password=lfswmaster
     Public Sub check_valid()
-        Dim conn As New OleDbConnection
-        conn.ConnectionString = ("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\LF Database\SWMaster_db.accdb;Jet OLEDB:Database Password=lfswmaster")
+        Dim conn As New SqlConnection
+        conn.ConnectionString = ("Data Source=BTMESSQLDEV03;Initial Catalog=TSG_ProjectMonitoringSystem;Persist Security Info=True;User ID=mesph;Password=PHFuse;TrustServerCertificate=True")
         Try
             conn.Open()
             Dim strsql As String
             strsql = "select Username from Uname where Username='" + F4_Username_txt.Text + "'"
-            Dim cmd As New OleDbCommand(strsql, conn)
-            Dim myreader As OleDbDataReader
+            Dim cmd As New SqlCommand(strsql, conn)
+            Dim myreader As SqlDataReader
             myreader = cmd.ExecuteReader
             myreader.Read()
             F4_get_user = myreader("Username")
@@ -68,7 +73,7 @@ Public Class Add_Form
 
     End Sub
     Dim mycommand As String
-    Dim myconnection As OleDbConnection = New OleDbConnection
+    Dim myconnection As SqlConnection = New SqlConnection
     Dim F4_Username, F4_Pass, F4_Title As String
     Dim F4_Finger As Object
 
@@ -113,11 +118,11 @@ Public Class Add_Form
         End If
         F4_Finger = fs_bytes
         'Console.WriteLine(F4_Finger)
-        myconnection.ConnectionString = ("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\LF Database\SWMaster_db.accdb;Jet OLEDB:Database Password=lfswmaster")
+        myconnection.ConnectionString = ("Data Source=BTMESSQLDEV03;Initial Catalog=TSG_ProjectMonitoringSystem;Persist Security Info=True;User ID=mesph;Password=PHFuse;TrustServerCertificate=True")
         Try
             myconnection.Open()
             mycommand = "INSERT INTO [Uname] ([Username],[Title],[Finger]) VALUES (@F4_Username, @F4_Title, @F4_Finger)"
-            Using cmd As OleDbCommand = New OleDbCommand(mycommand, myconnection)
+            Using cmd As SqlCommand = New SqlCommand(mycommand, myconnection)
                 cmd.Parameters.AddWithValue("@F4_Username", F4_Username)
                 cmd.Parameters.AddWithValue("@F4_Title", F4_Title)
                 cmd.Parameters.AddWithValue("@F4_Finger", fs_bytes)

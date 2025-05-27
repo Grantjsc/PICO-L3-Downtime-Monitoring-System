@@ -4,6 +4,7 @@ Imports System.CodeDom
 Imports System.Data.OleDb
 Imports System.IO.Ports
 Imports System.Windows
+Imports System.Data.SqlClient
 
 Public Class Master_login
     Implements DPFP.Capture.EventHandler
@@ -134,14 +135,14 @@ Public Class Master_login
             Dim result As New DPFP.Verification.Verification.Result()
 
             If Not Features_Verify Is Nothing Then 'check if quality is good
-                Dim conn As New OleDbConnection
-                conn.ConnectionString = ("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\LF Database\SWMaster_db.accdb;Jet OLEDB:Database Password=lfswmaster")
+                Dim conn As New SqlConnection
+                conn.ConnectionString = ("Data Source=BTMESSQLDEV03;Initial Catalog=TSG_ProjectMonitoringSystem;Persist Security Info=True;User ID=mesph;Password=PHFuse;TrustServerCertificate=True")
                 conn.Open()
 
                 Dim strsql As String
                 strsql = "select Username,Title,Finger FROM Uname"
-                Dim cmd As New OleDbCommand(strsql, conn)
-                Dim myreader As OleDbDataReader
+                Dim cmd As New SqlCommand(strsql, conn)
+                Dim myreader As SqlDataReader
                 myreader = cmd.ExecuteReader
                 Dim dt As New DataTable
                 dt.Load(myreader)
@@ -171,12 +172,12 @@ Public Class Master_login
                         StopCapture()
 
 
-                            Me.Close()
+                        Me.Close()
 
-                            Exit For
+                        Exit For
 
 
-                        End If
+                    End If
                 Next
                 If Not result.Verified Then
                     Label1.ForeColor = Color.Red
