@@ -6,16 +6,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1632C740-A076-4987-8837-5D32E8DAFE4A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>PICO_L3_DMS.My.MyApplication</StartupObject>
-    <RootNamespace>PICO_L3_DMS</RootNamespace>
-    <AssemblyName>PICO-L3 DMS</AssemblyName>
+    <StartupObject>PICO_L3_Downtime_MS.My.MyApplication</StartupObject>
+    <RootNamespace>PICO_L3_Downtime_MS</RootNamespace>
+    <AssemblyName>PICO-L3 Downtime MS</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\btwebdev01\Websites\WindowsAppUpdater\TSG_Shared\PICO-L3 Downtime Monitoring System\</PublishUrl>
+    <PublishUrl>\\btwebdev01\Websites\WindowsAppUpdater\TSG_Shared\PICO-L3 DMS\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -25,10 +25,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\btwebdev01\Websites\WindowsAppUpdater\TSG_Shared\PICO-L3 DMS\</InstallUrl>
     <ProductName>PICO L3 Downtime Alarm System</ProductName>
     <PublisherName>Littelfuse Philippines %28TSG%29 - GCatapang</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
-    <ApplicationRevision>20</ApplicationRevision>
+    <ApplicationRevision>33</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -42,7 +43,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>PICO-L3 DMS.xml</DocumentationFile>
+    <DocumentationFile>PICO-L3 Downtime MS.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -52,7 +53,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>PICO-L3 DMS.xml</DocumentationFile>
+    <DocumentationFile>PICO-L3 Downtime MS.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>

@@ -848,7 +848,7 @@ Namespace PICO_Downtime_Monitoring_SystemDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.PICO_L3_DMS.My.MySettings.Default.PICO_Downtime_Monitoring_SystemConnectionString
+            Me._connection.ConnectionString = Global.PICO_L3_Downtime_MS.My.MySettings.Default.PICO_Downtime_Monitoring_SystemConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

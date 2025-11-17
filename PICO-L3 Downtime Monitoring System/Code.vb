@@ -555,6 +555,14 @@ Module SendEmail_Module
                               <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>PIC:</td>
                               <td>PROCESS/PRODUCT/EQUIPMENT/QA/PRODUCTION</td>
                             </tr>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>ESCALATION LEVEL:</td>
+                              <td>1ST LEVEL</td>
+                            </tr>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>DOWNTIME DURATION:</td>
+                              <td>30 MINS</td>
+                            </tr>
                           </table>
                         </div>
                         <br> 
@@ -864,6 +872,14 @@ Module SendEmail_Module
                               <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>PIC:</td>
                               <td>PROCESS/PRODUCT/EQUIPMENT/QA/PRODUCTION</td>
                             </tr>
+                             <tr>
+                               <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>ESCALATION LEVEL:</td>
+                               <td>2ND LEVEL</td>
+                             </tr>
+                             <tr>
+                               <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>DOWNTIME DURATION:</td>
+                               <td>1 HR</td>
+                             </tr>
                           </table>
                         </div>
                         <br> 
@@ -940,6 +956,14 @@ Module SendEmail_Module
                             <tr>
                               <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>PIC:</td>
                               <td>PROCESS/PRODUCT/EQUIPMENT/QA/PRODUCTION</td>
+                            </tr>
+                             <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>ESCALATION LEVEL:</td>
+                              <td>3RD LEVEL</td>
+                            </tr>
+                            <tr>
+                              <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>DOWNTIME DURATION:</td>
+                              <td>2 HRS</td>
                             </tr>
                           </table>
                         </div>
@@ -1018,6 +1042,14 @@ Module SendEmail_Module
                               <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>PIC:</td>
                               <td>PROCESS/PRODUCT/EQUIPMENT/QA/PRODUCTION</td>
                             </tr>
+                             <tr>
+                               <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>ESCALATION LEVEL:</td>
+                               <td>4TH LEVEL</td>
+                             </tr>
+                             <tr>
+                               <td style='color: white; font-weight: bold; background-color: Red;text-align: center;'>DOWNTIME DURATION:</td>
+                               <td>3 HRS</td>
+                             </tr>
                           </table>
                         </div>
                         <br> 
@@ -3300,6 +3332,118 @@ Module SQL_Server_Query_Module
         End Try
 
     End Sub
+
+    '=======================================< SAVING HISTORY >=========================================
+
+    Sub Record_History_to_Database()
+        Dim mycommand As String
+
+        Dim PICO_Line As String = ResolvedReport_Form.txtLine.Text
+        Dim PICO_Process As String = ResolvedReport_Form.txtProcess.Text
+        Dim Reason As String = ResolvedReport_Form.txtCause.Text
+        Dim act As String = ResolvedReport_Form.txtNextStep.Text
+
+        Select Case PICO_Line
+
+            Case "PICO Line 3A"
+                PICO_Line = "Line 3"
+
+                '======< This part is to select the process name >=====
+                Select Case PICO_Process
+
+                    Case "Pre-melt"
+                        PICO_Process = "Pre-melt A"
+
+                    Case "CLI"
+                        PICO_Process = "CLI A"
+
+                    Case "Glassing"
+                        PICO_Process = "Glassing A"
+
+                    Case "Picosine"
+                        PICO_Process = "Picosine A"
+
+                    Case "Pin Tray"
+                        PICO_Process = "Pin Tray A"
+
+                    Case "1st Heat"
+                        PICO_Process = "1st Heat A"
+
+                    Case "Turning"
+                        PICO_Process = "Turning A"
+
+                    Case "2nd Heat"
+                        PICO_Process = "2nd Heat A"
+
+                    Case "Assembly"
+                        PICO_Process = "Assembly A"
+
+                End Select
+
+            Case "PICO Line 3B"
+                PICO_Line = "Line 3"
+
+                '======< This part is to select the process name >=====
+                Select Case PICO_Process
+
+                    Case "Pre-melt"
+                        PICO_Process = "Pre-melt B"
+
+                    Case "CLI"
+                        PICO_Process = "CLI B"
+
+                    Case "Glassing"
+                        PICO_Process = "Glassing B"
+
+                    Case "Picosine"
+                        PICO_Process = "Picosine B"
+
+                    Case "Pin Tray"
+                        PICO_Process = "Pin Tray B"
+
+                    Case "1st Heat"
+                        PICO_Process = "1st Heat B"
+
+                    Case "Turning"
+                        PICO_Process = "Turning B"
+
+                    Case "2nd Heat"
+                        PICO_Process = "2nd Heat B"
+
+                    Case "Assembly"
+                        PICO_Process = "Assembly B"
+
+                End Select
+
+            Case "PICO Line 5"
+                PICO_Line = "line 5"
+
+        End Select
+
+
+        Try
+            SQLConOpen()
+            mycommand = "INSERT INTO [PICO_DT_History_tb] ([Line], [Process], [ReportedBy], [ReportedTime], [ResolvedTime],
+                                     [DurationHrs], [Cause], [ActionTaken], [PIC]) 
+                                VALUES (@line, @Pro, @Repby, @RepTime, @ResTime, @Dur, @Cau, @Action, @PersonIC)"
+            Using command As New SqlCommand(mycommand, SQLDbconnection)
+                command.Parameters.AddWithValue("@line", PICO_Line)
+                command.Parameters.AddWithValue("@Pro", PICO_Process)
+                command.Parameters.AddWithValue("@Repby", Rep_name)
+                command.Parameters.AddWithValue("@RepTime", Reported)
+                command.Parameters.AddWithValue("@ResTime", Resolved)
+                command.Parameters.AddWithValue("@Dur", Totalhrs)
+                command.Parameters.AddWithValue("@Cau", Reason)
+                command.Parameters.AddWithValue("@Action", act)
+                command.Parameters.AddWithValue("@PersonIC", Biometric_Name)
+                command.ExecuteNonQuery()
+            End Using
+            SQLConClose()
+        Catch ex As Exception
+            MsgBox(ex.Message, vbCritical)
+        End Try
+
+    End Sub
 End Module
 
 Module Saving_Module
@@ -3351,6 +3495,7 @@ Module Saving_Module
 
             'SaveHistory()
             CheckCSV() ' 
+            Record_History_to_Database()
 
         Catch ex As Exception
             MessageBox.Show("Error copying data: " & ex.Message)
